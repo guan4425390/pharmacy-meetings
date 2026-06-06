@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鑽闄㈡湰瀛︽湡鐨勪細璁褰?/title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: oklch(0.97 0.008 120);
+  --surface: oklch(0.99 0.004 120);
+  --surface-alt: oklch(0.95 0.012 120);
+  --text-primary: oklch(0.25 0.02 140);
+  --text-secondary: oklch(0.45 0.015 135);
+  --text-muted: oklch(0.6 0.01 130);
+  --accent: oklch(0.48 0.14 155);
+  --accent-light: oklch(0.75 0.08 150);
+  --accent-dim: oklch(0.6 0.1 155);
+  --gold: oklch(0.72 0.12 85);
+  --gold-light: oklch(0.88 0.08 88);
+  --divider: oklch(0.85 0.015 125);
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.06), 0 1px 2px oklch(0 0 0 / 0.04);
+  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.07), 0 2px 6px oklch(0 0 0 / 0.04);
+  --shadow-lg: 0 8px 32px oklch(0 0 0 / 0.09), 0 3px 10px oklch(0 0 0 / 0.05);
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.88 0.06 140 / 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 80%, oklch(0.85 0.08 120 / 0.1), transparent);
+}
+
+/* 鈹€鈹€ Header 鈹€鈹€ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: oklch(0.99 0.003 120 / 0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid oklch(0.88 0.015 125 / 0.6);
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 5vw, 2rem);
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.header-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: oklch(0.85 0.06 150 / 0.25);
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+/* 鈹€鈹€ Hero 鈹€鈹€ */
+.hero {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) clamp(1rem, 5vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.hero-sub {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-sub .sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-light);
+}
+
+/* 鈹€鈹€ Timeline Container 鈹€鈹€ */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 2rem) clamp(3rem, 10vw, 6rem);
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: clamp(1rem, 5vw, 2rem);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-light),
+    oklch(0.85 0.02 130) 80%,
+    transparent
+  );
+}
+
+/* 鈹€鈹€ Month Label 鈹€鈹€ */
+.month-label {
+  position: relative;
+  margin: 2rem 0 1.2rem clamp(1.5rem, 5.5vw, 2.5rem);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-dim);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.month-label::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px oklch(0.75 0.1 150 / 0.25);
+  position: absolute;
+  left: calc(-1 * (clamp(1.5rem, 5.5vw, 2.5rem) - 1rem + 13px));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.month-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: oklch(0.85 0.015 125 / 0.5);
+  max-width: 3rem;
+}
+
+/* 鈹€鈹€ Meeting Card 鈹€鈹€ */
+.meeting-card {
+  position: relative;
+  margin-left: clamp(1.5rem, 5.5vw, 2.5rem);
+  margin-bottom: 1.25rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid oklch(0.9 0.01 125 / 0.5);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease-out, transform 0.25s ease-out;
+}
+
+.meeting-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.meeting-card:active {
+  transform: translateY(0);
+}
+
+/* Card dot */
+.meeting-card::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * (clamp(1.5rem, 5.5vw, 2.5rem) - 1rem + 9px));
+  top: 1.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  border: 2px solid var(--bg);
+  z-index: 2;
+}
+
+/* Card accent bar */
+.meeting-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-light) 80%);
+  border-radius: 3px 0 0 3px;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.meeting-card:hover::after { opacity: 1; }
+
+.card-header {
+  padding: 1rem 1.25rem 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card-date {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 0.25em 0.6em;
+  background: oklch(0.85 0.06 150 / 0.18);
+  border-radius: var(--radius-sm);
+}
+
+.card-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  flex: 1;
+}
+
+.card-meta {
+  padding: 0.6rem 1.25rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.card-meta-item svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--accent-dim);
+}
+
+.card-body {
+  padding: 0.75rem 1.25rem 0;
+}
+
+.card-body pre {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: none;
+  padding: 0;
+  margin: 0;
+  max-height: 12em;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-body pre.expanded {
+  max-height: none;
+}
+
+.card-body pre:not(.expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3em;
+  background: linear-gradient(to bottom, transparent, var(--surface));
+  pointer-events: none;
+}
+
+.card-body .expand-btn {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--accent);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 0.3em 0;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.card-body .expand-btn:hover {
+  color: var(--accent-dim);
+}
+
+.card-actions {
+  padding: 0.75rem 1.25rem 1rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.45em 0.9em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s ease-out;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.btn-copy {
+  background: oklch(0.85 0.06 150 / 0.22);
+  color: var(--accent);
+}
+
+.btn-copy:hover {
+  background: oklch(0.8 0.08 155 / 0.3);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-copy:active {
+  transform: scale(0.97);
+}
+
+.btn-copy.copied {
+  background: oklch(0.78 0.1 150 / 0.35);
+  color: oklch(0.4 0.12 150);
+}
+
+.btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* 鈹€鈹€ Footer / Export 鈹€鈹€ */
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  background: oklch(0.99 0.003 120 / 0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-top: 1px solid oklch(0.88 0.015 125 / 0.6);
+  padding: 0.85rem clamp(1rem, 5vw, 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-inner {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-info {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.btn-export {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6em 1.4em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px oklch(0.48 0.14 155 / 0.25);
+}
+
+.btn-export:hover {
+  background: oklch(0.42 0.14 155);
+  box-shadow: 0 4px 16px oklch(0.48 0.14 155 / 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-export:active {
+  transform: translateY(0);
+}
+
+/* 鈹€鈹€ Toast 鈹€鈹€ */
+.toast {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(0.5rem);
+  background: var(--text-primary);
+  color: var(--surface);
+  font-size: 0.82rem;
+  padding: 0.55em 1.2em;
+  border-radius: 999px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease-out;
+  z-index: 200;
+  box-shadow: var(--shadow-lg);
+  letter-spacing: 0.02em;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 鈹€鈹€ Print Styles for PDF 鈹€鈹€ */
+@media print {
+  @page { margin: 1.5cm 1cm; size: A4; }
+
+  body {
+    background: #fff !important;
+    background-image: none !important;
+    font-size: 11pt;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  .header,
+  .footer,
+  .btn,
+  .card-body .expand-btn,
+  .toast,
+  .hero-eyebrow,
+  .card-actions,
+  .card-date,
+  .card-meta,
+  .timeline::before,
+  .meeting-card::before,
+  .meeting-card::after,
+  .month-label::before,
+  .month-label::after,
+  .header-badge,
+  .hero-sub .sep,
+  .card-body pre::after {
+    display: none !important;
+  }
+
+  .hero h1 {
+    font-size: 18pt;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 900;
+  }
+
+  .hero-sub {
+    text-align: center;
+    justify-content: center;
+    font-size: 10pt;
+  }
+
+  .timeline {
+    padding: 0 0.5rem;
+  }
+
+  .meeting-card {
+    margin-left: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    background: #fff;
+    page-break-inside: avoid;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header {
+    padding: 0;
+  }
+
+  .card-title {
+    font-size: 12pt;
+    font-weight: 700;
+  }
+
+  .card-body {
+    padding: 0.3rem 0 0;
+  }
+
+  .card-body pre {
+    max-height: none;
+    font-size: 9.5pt;
+    color: #333;
+    line-height: 1.55;
+    font-family: 'Noto Sans SC', system-ui, sans-serif;
+  }
+
+  .card-body pre::after { display: none; }
+
+  .month-label {
+    margin: 0.8rem 0 0.4rem;
+    font-size: 11pt;
+    border-bottom: 2px solid #333;
+  }
+
+  .hero { padding: 1rem 0.5rem; }
+}
+
+@media print and (color) {
+  .card-title { color: #1a472a; }
+  .month-label { color: #2d6a4f; }
+}
+
+/* 鈹€鈹€ Mobile 鈹€鈹€ */
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 0.75rem;
+  }
+
+  .meeting-card {
+    margin-left: 2rem;
+  }
+
+  .month-label {
+    margin-left: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .meeting-card::before {
+    left: calc(-1 * (2rem - 1rem + 9px));
+    top: 1.2rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem 0;
+  }
+
+  .card-meta { padding: 0.5rem 1rem 0; }
+  .card-body { padding: 0.6rem 1rem 0; }
+  .card-actions { padding: 0.6rem 1rem 0.85rem; }
+
+  .btn-copy {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .meeting-card,
+  .btn,
+  .toast {
+    transition: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <span class="header-title">鑽闄細璁褰?/span>
+    <span class="header-badge">2026 鏄ュ瀛︽湡</span>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="hero-eyebrow">Pharmacy School 路 Meeting Archive</p>
+  <h1>鑽闄㈡湰瀛︽湡鐨勪細璁褰?/h1>
+  <p class="hero-sub">
+    <span>2026骞?鏈?鈥?6鏈?/span>
+    <span class="sep"></span>
+    <span>鍏?30 鍦轰細璁?/span>
+  </p>
+</section>
+
+<div class="timeline" id="timeline"></div>
+
+<div class="footer">
+  <div class="footer-inner">
+    <span class="footer-info">鍏?30 鍦轰細璁褰?/span>
+    <button class="btn btn-export" onclick="exportPDF()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      涓€閿鍑?PDF
+    </button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const MEETINGS = [
+  {"date":"2026骞?鏈?鏃?,"title":"杈呭鍛樺伐浣滀細璁?,"attendees":"杈呭鍛?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴嗐€佺繜鑻辨澃\n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳\n\n浼氳绾锛氭湰娆′細璁富瑕侀儴缃茶緟瀵煎憳鍚勯」鏃ュ父宸ヤ綔锛屾兜鐩栨€濇斂鑲蹭汉銆佸畨鍏ㄧ鐞嗐€佸績鐞嗗仴搴枫€佸弽璇堝浼犵瓑澶氫釜鏂归潰銆俓n- 鎬濇斂鑲蹭汉宸ヤ綔锛氱粍缁囧紑灞曢矞鏄庣壒鑹茬殑涓婚鐝細锛屽垱鏂板紑灞曞舰寮廫n- 瀹夊叏绠＄悊宸ヤ綔锛氳窡杩涜繑鏍″鐢熶汉鏁帮紝澶氬姞鍏虫敞瀹朵腑绐佸彂鍙樻晠瀛︾敓\n- 鏇存柊蹇冪悊浜戝钩鍙帮紝璺熻繘棰勮瀛︾敓蹇冪悊鍔ㄦ€乗n- 寮€灞曞弽璇堝浼犳暀鑲瞈n- 鍔犲己鐢靛姩杞︾鐞哱n- 鎺ㄨ繘蹇冪悊杈呭绔欏缓璁綷n- 钀藉疄鏅氳嚜涔犵鐞哱n- 鍋氬ソ濂栧姪璐峰伐浣淺n- 鐢虫姤杈呭鍛樺伐浣滃寤鸿椤圭洰锛岀澶囧伐浣滆鍧?},
+  {"date":"2026骞?鏈?6鏃?,"title":"杈呭鍛樺伐浣滀細璁?,"attendees":"杈呭鍛?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?6鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴嗐€佺繜鑻辨澃\n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳\n\n浼氳绾锛氭湰娆′細璁儴缃茶繎鏈熼噸鐐瑰伐浣滐紝鍖呮嫭鍙嶈瘓绂佹瘨鏁欒偛銆佹嫑鑱樹細鍔ㄥ憳銆佸鐢熶簨鍔″姙鐞嗙瓑銆俓n- 3鏈?鏃ュ弽璇堜富棰樺伐浣滀細璁紝寮€灞曠姣掋€佹€ф暀鑲瞈n- 鍋氬ソ鎷涜仒浼氬姩鍛樺伐浣淺n- 鍛ㄤ笁瀹炰範鐢熷璁蹭細锛?9:00瀛︽湳鎶ュ憡鍘匼n- 娲诲姩鎺掔彮瀹夋帓\n- 浼戝銆侀€€瀛︺€佽蛋璇荤▼搴忓姙鐞哱n- 钀藉疄瀛︾敓杞笓涓氱浉鍏充簨鍔℃€у伐浣淺n- 鍋氬ソ浼犳煋鎬х柧鐥呬笂鎶ュ伐浣淺n- 寮€灞曞闄㈡枃鏄庡鑸嶈瘎閫塡n- 蹇冪悊杈呭绔欏嫟宸ヤ凯瀛﹀矖浣嶉潰璇?},
+  {"date":"2026骞?鏈?3鏃?,"title":"鑽闄㈣緟瀵煎憳宸ヤ綔浼氳","attendees":"鍏ㄤ綋鑽闄㈣緟瀵煎憳","location":"2-315锛堟柊鍖猴級","content":"鏃堕棿锛?026骞?鏈?3鏃n鍦扮偣锛?-315锛堟柊鍖猴級\n涓绘寔浜猴細淇濇辰搴嗐€佺繜鑻辨澃\n鍙備細浜哄憳锛氬叏浣撹嵂瀛﹂櫌杈呭鍛榎n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樺伐浣滀細璁甛n\n浼氳绾锛氭湰娆′細璁噸鐐瑰己璋冪彮椋庡椋庡缓璁俱€佸畨鍏ㄧ鐞嗗拰鎷涜仒浼氱澶囧伐浣溿€俓n- 鎶撶揣鐝寤鸿锛氳瀹ゅ崼鐢熴€佸鐢熶华瀹逛华琛ㄣ€佹枃鏄庣ぜ璨孿n- 涓ユ姄澶у姛鐜囩數鍣ㄨ繚绂佷娇鐢紝寮€灞曟枃鏄庡鑸嶈瘎姣斿伐浣淺n- 宸ヤ綔涓嬫矇锛屾懜鎺掑鐢熸儏鍐礬n- 鍔犲己璇惧爞鑰冨嫟锛岀壒鍒槸鍛ㄤ竴涓婂崍鍜屽懆浜斾笅鍗堣€冨嫟\n- 3鏈?9鏃ワ紙鏄熸湡澶╋級鏍″洯鎷涜仒浼氾紝150+鐢ㄤ汉鍗曚綅\n- 鍋氬ソ蹇冪悊宸ヤ綔鎬荤粨"},
+  {"date":"2026骞?鏈?6鏃?,"title":"鑽闄㈠厷鎬绘敮2025骞村害缁勭粐鐢熸椿浼氬拰姘戜富璇勮","attendees":"鑽闄㈠叏浣撴暀甯堝厷鍛?,"location":"瀹為獙妤?-315","content":"鏃堕棿锛?026骞?鏈?6鏃n鍦扮偣锛氬疄楠屾ゼ2-315\n涓绘寔浜猴細缈熻嫳鏉颁功璁癨n鍙備細浜哄憳锛氳嵂瀛﹂櫌鍏ㄤ綋鏁欏笀鍏氬憳\n浼氳鍚嶇О锛氳嵂瀛﹂櫌鍏氭€绘敮2025骞村害缁勭粐鐢熸椿浼氬拰姘戜富璇勮\n\n浼氳绾锛氭湰娆″厷鍛樹細璁紑灞曞勾搴﹀伐浣滄€荤粨銆佹壒璇勪笌鑷垜鎵硅瘎锛屽苟閮ㄧ讲鍏氬缓宸ヤ綔銆俓n- 淇濇辰搴嗗悓蹇椾綔2025骞村害宸ヤ綔鎬荤粨\n- 寮€灞曟壒璇勪笌鑷垜鎵硅瘎\n- 鍔犲己娌熼€氾紝鐣呴€氬悇閮ㄩ棬宸ヤ綔娴佺▼\n- 寤虹珛鎺ュ緟鏃ワ紝鍔犲己瀛︾敓涓庡闄㈡矡閫歕n- 鏋勫缓銆屽厷寤?銆嶄富棰樺厷鏃ワ紝鎵撻€犳湁鐗硅壊鐨勯珮璐ㄩ噺鍏氬缓\n- 鍕囦簬鎷呭綋锛屾暍浜庝綔涓?},
+  {"date":"2026骞?鏈?1鏃?,"title":"鑽闄㈣緟瀵煎憳宸ヤ綔浼氳","attendees":"鍏ㄤ綋杈呭鍛?,"location":"瀹為獙妤?-315","content":"鏃堕棿锛?026骞?鏈?1鏃n鍦扮偣锛氬疄楠屾ゼ2-315\n涓绘寔浜猴細淇濇辰搴嗐€佺繜鑻辨澃涔﹁\n鍙備細浜哄憳锛氬叏浣撹緟瀵煎憳\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樺伐浣滀細璁甛n\n浼氳绾锛氭湰娆′細璁噸鐐瑰己璋冨鐢熼棶棰樺缃€佸洟闃熷缓璁惧拰宸ヤ綔浣滈锛岄儴缃插弽璇堛€佸疄涔犵瓑宸ヤ綔銆俓n- 鍋氬ソ瀛︾敓閫€璐瑰伐浣淺n- 瀛︾敓韬綋闂绱ф€ュ缃祦绋媆n- 濡ュ杽澶勭悊瀛︾敓鎶曡瘔浜嬩欢鍜屽鐢熸鎵撱€佽颈楠傝€佸笀绛夐棶棰榎n- 瀛︾敓瀹夋帓瀹炰範鐐癸紝娉ㄦ剰鐗规畩浜虹兢\n- 闃茶寖瀛︾敓澶辫仈闂\n- 寤虹珛鍛ㄦ湯澶栧嚭鍙板笎\n- 瀛︾敓鍙嶈瘓宸ヤ綔锛堝埛鍗曡繑鍒╂渚嬪眳澶氾級锛屾瘡涓湀寮€灞曞弽璇堢彮浼歕n- 瀛︾敓闂澶勭疆姹囨姤闇€璇︾粏锛屽仛濂藉悗缁窡杩沑n- 宸ヤ綔浣滈锛氬繝璇氥€佸共鍑€銆佹媴褰擄紝闅忔椂娌熼€歕n- 鍥㈤槦鍗忎綔锛岄槦浼嶅缓璁撅紝浜掔浉甯姪銆佷簰鐩哥洃鐫n- 绮剧泭姹傜簿锛屾爲绔嬭鑼冩剰璇嗐€佸叕骞虫剰璇哱n- 椋庢竻姘旀锛屽仛濂借亴绉拌瘎瀹＄浉鍏冲府鍔╁伐浣?},
+  {"date":"2026骞?鏈?鏃?,"title":"2026骞村緛鍏靛伐浣滃姩鍛橀儴缃蹭細","attendees":"浜岀骇瀛﹂櫌鍏氭€绘敮涔﹁銆佸壇涔﹁銆佽緟瀵煎憳","location":"鍒濆績鍫?,"content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛氬垵蹇冨爞\n涓绘寔浜猴細寤栨槑鐢焅n鍙備細浜哄憳锛氫簩绾у闄㈠厷鎬绘敮涔﹁銆佸壇涔﹁銆佽緟瀵煎憳\n浼氳鍚嶇О锛?026骞村緛鍏靛伐浣滃姩鍛橀儴缃蹭細\n\n浼氳绾锛氭湰娆′細璁繘琛屽緛鍏靛伐浣滅粡楠屽垎浜拰琛ㄥ桨銆俓n- 閭撳鑾硅€佸笀姹囨姤寰佸叺宸ヤ綔缁忛獙\n- 浼樼缁勭粐濂栭濂栦华寮?},
+  {"date":"2026骞?鏈?鏃?,"title":"瀹堟鍒涙柊 璧嬭兘鎴愰暱鈥斺€?026骞磋緟瀵煎憳宸ヤ綔璁哄潧","attendees":"杈呭鍛?,"location":"琛屾斂妤煎垵蹇冨爞","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛氳鏀挎ゼ鍒濆績鍫俓n涓绘寔浜猴細瀛︾敓宸ヤ綔閮╘n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氬畧姝ｅ垱鏂?璧嬭兘鎴愰暱鈥斺€?026骞磋緟瀵煎憳宸ヤ綔璁哄潧\n\n浼氳绾锛氭湰娆¤緟瀵煎憳宸ヤ綔璁哄潧鍒嗕韩宸ヤ綔蹇冨緱锛屾帰璁ㄥ鐢熷伐浣滄柟娉曚笌妗堜緥鎻愮偧銆俓n- 瀛︾敓宸ヤ綔娌℃湁鎹峰緞锛屽叏闈犵湡蹇冦€佷笓蹇冦€佽矗浠诲績\n- 鐪熷績瀵瑰緟瀛︾敓锛屼笌瀛︾敓鐩稿鍏辨儏锛屼竴鍙ュ叧蹇冦€佷竴娆″€惧惉銆佷竴鍥炲潥瀹堬紝鍙兘灏辨敼鍙樹竴涓鐢熺殑鐘舵€乗n- 缁х画鎶婂皬浜嬪仛缁嗭紝鎶婄粏浜嬪仛閫廫n- 鍚戝鐢熷睍鐜板嚭鍠勬剰锛屽鐢熶細缁欎簣杈呭鍛樻鍚戝弽棣圽n- 璁哄潧鎰熸兂锛氬伐浣滅粡楠岀Н绱啋鎻愮偧妗堜緥鈫掍笂鍗囩悊璁猴紝褰㈡垚鍙帹骞裤€佸彲澶嶅埗鐨勫鐢熷伐浣滄渚媆n- 瀹氭湡銆佷笉瀹氭湡寮€灞曚簩绾у闄㈣緟瀵煎憳璁哄潧\n- 銆屼笁鏀竴鎵躲€嶇浉鍏冲伐浣?},
+  {"date":"2026骞?鏈?鏃?,"title":"杈呭鍛樺伐浣滆鍧?,"attendees":"杈呭鍛?,"location":"鍒濆績鍫?,"content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛氬垵蹇冨爞\n涓绘寔浜猴細锛堟湭娉ㄦ槑锛塡n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔璁哄潧\n\n浼氳绾锛氭湰娆¤鍧涘洿缁曡緟瀵煎憳宸ヤ綔鐨勫涓富棰樿繘琛岀粡楠屽垎浜笌浜ゆ祦銆俓n- 銆屼粠鍙楀姪銆嶅埌鍔╀汉锛氬彂灞曞瀷璧勫姪瑙嗗煙涓嬮珮鎶曞叆鐨勫満鏅痋n- 鎶よ埅鎴愰暱锛氶珮鏍″氨涓氭寚瀵煎伐浣滀綋绯绘瀯寤轰笌瀹炶返\n- 涓撲笟閫傞厤閿欎綅瀛︾敓甯壎妯″紡鐨勬帰绱笌瀹炶返\n- 浠庨璀﹀埌瀹堟姢锛氭暀鑲茶€呰瑙掍笅鐨勬牎鍥績鐞嗗嵄鏈鸿瘑鍒笌搴斿瀹炲綍\n- 鏁板瓧鍖栬祴鑳介珮鏍＄彮绾ф棩甯哥鐞嗕笌绮惧噯灏变笟鏈嶅姟\n- 銆屼粠绮惧噯闃层€嶅埌娣卞害鎰堬細杈呭鍛樼數淇＄綉缁滆瘓楠楅槻娌籠n- 浠ユ柊浠ユ煍鎬х鐞嗕笌浜烘枃鍏虫€€鍖栬В瀛︾敓瀹胯垗鐭涚浘\n- 瀹炶返鑲蹭汉鍔╂尟鍏?浜т笟璧嬭兘娑︽€濇斂\n- 浠ヨ禌浼樺"},
+  {"date":"2026骞?鏈?鏃?,"title":"2023灞婃瘯涓氱敓灏变笟宸ヤ綔鎺ㄨ繘浼?,"attendees":"淇濇辰搴嗐€佺繜鑻辨澃銆佽嵂瀛﹂櫌鍏ㄤ綋鏁欒亴宸?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-315\n涓绘寔浜猴細姹捣娑沑n鍙備細浜哄憳锛氫繚娉藉簡銆佺繜鑻辨澃銆佽嵂瀛﹂櫌鍏ㄤ綋鏁欒亴宸n浼氳鍚嶇О锛?023灞婃瘯涓氱敓灏变笟宸ヤ綔鎺ㄨ繘浼歕n\n浼氳绾锛氭湰娆′細璁垎鏋愬氨涓氱幇鐘讹紝閮ㄧ讲鍏ㄥ憳灏变笟鎺ㄨ繘宸ヤ綔锛屽缓绔嬪府鎵舵満鍒躲€俓n- 灏变笟鐜囨儏鍐佃鏄庯細鑽闄㈠氨涓氱巼36.34%锛屽鏍″钩鍧?9%\n- 鍒嗘瀽鎴戞牎寰€骞村氨涓氱幇鐘跺強姣曚笟鐢熼潰涓寸殑鎸戞垬\n- 鎱㈠氨涓氥€佽鏈涙€佸害锛屽鐢熷氨涓氭眰鑱屾剰鎰夸笉寮虹儓\n- 涓撳崌鏈汉鏁?22浜猴紙2025骞达級\n- 搴曟暟涓嶆竻锛氭眰鑱屾剰鎰裤€佸尯鍩熴€佹剰鍚戝伐浣溿€佸弽棣堜笉娓匼n- 瀛︾敓灏变笟瀹氫綅涓嶆竻妤氣€斺€斾笓绉戠敓杩涘尰闄㈠畾浣嶉棶棰榎n- 灏变笟鎸囧绮惧噯搴︿笉瓒筹紝闇€寮€灞曢棶鍗疯皟鏌n- 灏变笟淇℃伅娓犻亾寰呮嫇瀹絓n- 蹇冪悊鐤忓鏈哄埗涓嶅畬鍠刓n- 鍏ㄥ憳鍙備笌灏变笟鍔ㄥ憳锛屽缓绔嬨€屼竴瀵瑰銆嶇粨瀵规満鍒跺拰銆屼竴鐢熶竴绛栥€嶇簿鍑嗗府鎵禱n- 寤虹珛瀛﹂櫌甯壎鏈哄埗銆佺粨瀵瑰府鎵舵満鍒躲€佸姩鎬佽窡韪弽棣堟満鍒?},
+  {"date":"2026骞?鏈?鏃?,"title":"蹇冪悊鎺掓煡宸ヤ綔浼氳","attendees":"蹇冪悊鍜ㄨ涓績鏉庢晱涓讳换銆佸宸ラ儴閮ㄩ暱鏉庡皬鍏般€佹柊鍖鸿緟瀵煎憳","location":"7-110","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-110\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氬績鐞嗗挩璇腑蹇冩潕鏁忎富浠汇€佸宸ラ儴閮ㄩ暱鏉庡皬鍏般€佹柊鍖鸿緟瀵煎憳\n浼氳鍚嶇О锛氬績鐞嗘帓鏌ュ伐浣滀細璁甛n\n浼氳绾锛氭湰娆′細璁眹鎶ュ闄㈠績鐞嗛棶棰樺鐢熸儏鍐碉紝瀛︿範蹇冪悊璇嗗埆涓庤皥蹇冭皥璇濇妧宸с€俓n- 瀛﹂櫌蹇冪悊闂瀛︾敓鎯呭喌姹囨姤\n- 蹇冪悊浜戝钩鍙般€佸績鐞嗘棩鎶ヨ〃浣跨敤\n- 璋堝績璋堣瘽鎶€宸у煿璁璡n- 瀛︿範濡備綍璇嗗埆蹇冪悊闂"},
+  {"date":"2026骞?鏈?0鏃?,"title":"寰佸叺鍏ヤ紞宸ヤ綔涓撻鍩硅","attendees":"浜岀骇瀛﹂櫌鍏氭€绘敮鍓功璁般€佸叏浣撹緟瀵煎憳","location":"琛屾斂妤?13銆佺患鍚堟ゼ411","content":"鏃堕棿锛?026骞?鏈?0鏃n鍦扮偣锛氳鏀挎ゼ413銆佺患鍚堟ゼ411\n涓绘寔浜猴細寤栨槑鐢焅n鍙備細浜哄憳锛氫簩绾у闄㈠厷鎬绘敮鍓功璁般€佸叏浣撹緟瀵煎憳\n浼氳鍚嶇О锛氬緛鍏靛叆浼嶅伐浣滀笓棰樺煿璁璡n\n浼氳绾锛氭湰娆″煿璁缁嗚瑙ｅ緛鍏靛叆浼嶇殑鍏ㄦ祦绋嬨€佹斂绛栬姹傚拰娉ㄦ剰浜嬮」銆俓n- 瀛欏痉婊¤€佸笀寰佸叺宸ヤ綔鎸囧锛屽涔犳渶鏂版寚鍗梊n- 缃戜笂鎶ュ悕銆佸垵妫€鍒濇牳銆佷綋妫€鏀胯€冩祦绋媆n- 瀛︽牎鎵€鍦ㄥ湴銆佹埛绫嶆墍鍦ㄥ湴搴斿緛閫夋嫨锛氬箍涓溾啋鑲囧簡鈫掔宸炩啋鑲囧簡鍖诲闄n- 鍔″繀鎵爜杩涚兢锛?鏈堝垵銆?鏈堝垵\n- 鏂板蹇冪悊娴嬭瘯锛堝彧鏈変竴娆℃満浼氾紝娌℃湁澶嶆鏈轰細锛夛紝鑻ヤ笉鍚堟牸鐩存帴娣樻卑\n- 鍦ㄦ牎琛ㄧ幇璇勫垎锛堟寚鍗楁湁妯℃澘锛塡n- 浣撹兘娴嬭瘯锛堟柊澧烇級锛屽姞鍒嗛」鐩紙鍘跨骇浠ヤ笂鑾峰锛岀郴缁熻嚜鍔ㄥ姞鍒嗭級锛屽噺鍒嗛」鐩紙浣撴鏈夌憰鐤碉紝绯荤粺鑷姩鍑忓垎锛塡n- 澶у鐢燂紙10鍒嗭級锛岄珮涓瘯涓氱敓锛?鍒嗭級\n- 绮や笢銆佺菠瑗夸汉鍙ｅぇ鍘跨珵浜夊崄鍒嗘縺鐑堬紝鍦ㄦ牎鍏ヤ紞鐩稿鏈轰細鏇村ぇ\n- 杩戣鎵嬫湳8000鍏冭ˉ璐碶n- 濂崇敓锛氱患鍚堝垎=鏂囧寲锛?0%锛?鎬濇兂锛?0%锛?韬綋锛?0%锛夛紝涓嶅悎鏍肩洿鎺ユ窐姹癨n- 鐔熸倝涓夌瑪甯怽n- 鍦ㄦ牎鍏ㄧ▼锛屽垎闃舵鎺ㄨ繘\n- 浣撹兘娴嬭瘯锛氱敺1000绫筹紝濂?00绫筹紝绔嬪畾璺宠繙锛屽紩浣撳悜涓?},
+  {"date":"2026骞?鏈?3鏃?,"title":"鑽闄㈣緟瀵煎憳宸ヤ綔浼氳","attendees":"鑽闄㈣緟瀵煎憳锛堟柊鍖烘牎鍖恒€侀紟婀栨牎鍖猴級","location":"7-109銆佸疄楠屾ゼ2-513","content":"鏃堕棿锛?026骞?鏈?3鏃n鍦扮偣锛?-109銆佸疄楠屾ゼ2-513\n涓绘寔浜猴細缈熻嫳鏉般€佷繚娉藉簡涔﹁\n鍙備細浜哄憳锛氳嵂瀛﹂櫌杈呭鍛橈紙鏂板尯鏍″尯銆侀紟婀栨牎鍖猴級\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樺伐浣滀細璁甛n\n浼氳绾锛氭湰娆′細璁己璋冨嵄鏈烘剰璇嗗拰宸ヤ綔绾緥锛岄儴缃插績鐞嗗钩鍙板畬鍠勩€佸鐢熺鐞嗙瓑宸ヤ綔銆俓n- 瀹屽杽蹇冪悊浜戝钩鍙拌祫鏂欙紝鎵庡疄璧勬枡\n- 鍔犲己璇惧爞鑰冨嫟锛屽鐢熻闂村幓鍚戙€佹櫄涔犳儏鍐碉紝杩熷埌鏃╅€€\n- 瀛︽牎瀛︾敓浣跨敤鏃犱汉鏈烘儏鍐电櫥璁板妗圽n- 鍦ㄦ牎瀛︾敓杈呭鍛樻湰鍛?4灏忔椂鍦ㄥ矖锛堝宸ヨ姹傦級\n- 8涓笓浠汇€?3涓吋鑱岃緟瀵煎憳锛堟暀瀛﹂櫌锛塡n- 鍙嶆€濆伐浣滐紝鏌ユ紡琛ョ己锛屾彁楂樺嵄鏈烘剰璇哱n- 鍔犲己鍙嶈瘓鏁欒偛锛屽紑灞曠彮浼氭€ф暀鑲层€佽储浜ф暀鑲瞈n- 娉ㄦ剰缃戠粶鑸嗘儏锛屽仛濂藉鐢熷紩瀵糪n- 鏈夎鐭╂剰璇嗐€佺邯寰嬫剰璇嗭紝蹇犺瘹銆佸共鍑€銆佹媴褰揬n- 鍛ㄦ湯瀛︾敓鍘诲悜绠＄悊锛屽仛濂芥姤澶嘰n- 寮曞瀛︾敓澶氬弬涓庡鐢熸椿鍔ㄣ€佺鐮旀椿鍔╘n- 澶嶈銆佸仴浼戝鐩稿叧宸ヤ綔\n- 24灏忔椂7澶╁叏绋嬪湪宀梊n- 瀛﹁垂鎷栨瑺鐨勶紝浜嗚В鎯呭喌\n- 鏈弧18鍛ㄥ瞾瀛︾敓缁熻\n- 澶栧嚭瀛︾敓闇€瀹堕暱鐭ユ儏\n- 璧拌鏉愭枡琛ュ厖銆佹洿鏂帮紝浼戝鏉愭枡鍔炵悊\n- 鏃犺鏃堕棿鎶婃帶\n- 鍛ㄦ湯澶栧嚭鐧昏琛ㄧ鐞哱n- 鍏卞悓澶勭悊绱ф€ユ儏鍐?},
+  {"date":"2026骞?鏈?6鏃?,"title":"鍏氭敮閮ㄥ厷鍛樺ぇ浼?,"attendees":"鍏氭敮閮ㄦ暀甯堝厷鍛?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?6鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴嗐€佺繜鑻辨澃\n鍙備細浜哄憳锛氬厷鏀儴鏁欏笀鍏氬憳\n浼氳鍚嶇О锛氬厷鏀儴鍏氬憳澶т細\n\n浼氳绾锛氭湰娆′細璁紑灞曠涓€璁瀛︿範锛屽己璋冭偛浜哄垵蹇冦€俓n- 绗竴璁锛氬涔犱範杩戝钩鎬讳功璁伴噸瑕佹枃绔犮€婃爲绔嬪拰璺佃姝ｇ‘鏀跨哗瑙傘€媆n- 鍧氬畧鑲蹭汉鍒濆績锛屼互鐢熶负鏈€佹€濇兂寮曢"},
+  {"date":"2026骞?鏈?1鏃?,"title":"瀛︽牎棰嗗璋冪爺鑽闄㈠宸ュ伐浣?,"attendees":"鏂板尯杈呭鍛樸€佸闄㈤瀵笺€佸鏍￠瀵?,"location":"7-200","content":"鏃堕棿锛?026骞?鏈?1鏃n鍦扮偣锛?-200\n涓绘寔浜猴細閯備簯瀹逛功璁癨n鍙備細浜哄憳锛氭柊鍖鸿緟瀵煎憳銆佸闄㈤瀵笺€佸鏍￠瀵糪n浼氳鍚嶇О锛氬鏍￠瀵艰皟鐮旇嵂瀛﹂櫌瀛﹀伐宸ヤ綔\n\n浼氳绾锛氭湰娆¤皟鐮斾細璁惉鍙栧宸ュ伐浣滄眹鎶ワ紝灏辫緟瀵煎憳闃熶紞寤鸿鍜屽伐浣滄柟娉曟彁鍑烘寚瀵兼剰瑙併€俓n- 8鍚嶄笓浠汇€?3鍚嶅吋鑱岃緟瀵煎憳闃熶紞鎯呭喌\n- 寤鸿鍏艰亴杈呭鍛樿浆涓虹彮涓讳换锛屼互涓撹亴杈呭鍛樹负涓籠n- 姣忓崐鏈堟眹鎶ヨ緟瀵煎憳鏃ュ父宸ヤ綔锛屽姞寮哄伐浣滆仈鍔ㄦ€n- 鑰冪爺涓撻璁插骇锛堝懆涓夛級銆佽涔﹁妭鈥斺€斿崡鏂瑰尰浼樼杈呭鍛樿搴с€佸績鐞嗚搴с€佽嵂瀛﹂櫌鎬ф暀鑲诧紙鍛ㄥ洓锛塡n- 宸ヤ綔鐣欑棔鏄渶瑕佺殑锛屼絾鏄笉鑳借繃搴︼紝搴旀敞閲嶅疄鏁圽n- 鍚堢悊銆佺瀛︾殑鍩硅浼氥€佹渚嬪垎浜細鏈夊埄浜庤緟瀵煎憳鎻愰珮鑲蹭汉瀹炴晥\n- 鎻愬€℃渚嬪紡鏁欏锛岃皟鏁村笀鐢熸矡閫氭柟寮忥紝璁╂儏缁€佸唴瀹瑰叆蹇冨叆鑴慭n- 鎻愰珮瀛︾敓鎬濊鲸鎬n- 绐佸彂鎬у鐢熶簨浠跺杈呭鍛樺伐浣滅殑鍚彂\n- 寮€灞曡崏鍧彮浼氥€佹搷鍦虹彮浼歕n- 鍋跺彂浜嬩欢搴斿"},
+  {"date":"2026骞?鏈?1鏃?,"title":"杈呭鍛樺伐浣滀細璁紙鍛ㄤ緥浼氾級","attendees":"鑽闄㈠叏浣撲笓鍏间换杈呭鍛?,"location":"2-510","content":"鏃堕棿锛?026骞?鏈?1鏃n鍦扮偣锛?-510\n涓绘寔浜猴細淇濇辰搴嗕功璁癨n鍙備細浜哄憳锛氳嵂瀛﹂櫌鍏ㄤ綋涓撳吋浠昏緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳锛堝懆渚嬩細锛塡n\n浼氳绾锛氭湰娆′細璁儴缃茶€冪爺璁插骇銆佸鐢熻鍋囧埗搴﹀拰灏变笟绛夊伐浣溿€俓n- 涓撳崌鏈€佽€冪爺璁插骇锛屾湅杈堝姏閲忓紩棰嗗涓氳鍒掞紝鎻愰珮瀛︾敓鍙備笌搴n- 瀛︾敓璇峰亣鍒跺害锛氳法杩囧懆鍏€佸懆鏃ラ渶璁＄畻鍦ㄥ唴\n- 宸ヤ綔鐣欑棔锛屽仛濂借褰昞n- 娆犺垂杩界即锛屾煍鎬у偓淇僜n- 褰㈡垚瀛﹂櫌妗堜緥闆哱n- 瀛︽牎姝ｅ湪杩涜鍩哄眰鍓亴绔炶仒\n- 姣忓懆杈呭鍛樺伐浣滄眹鎶ワ紙涓撱€佸吋浠昏緟瀵煎憳杞祦锛塡n- 灏变笟宸ヤ綔鎺ㄨ繘"},
+  {"date":"2026骞?鏈?3鏃?,"title":"鍏氭敮閮ㄥ鍛樹細","attendees":"淇濇辰搴嗐€佺繜鑻辨澃銆佸懆鍑嚂銆佸江鐐滄","location":"2-315","content":"鏃堕棿锛?026骞?鏈?3鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氫繚娉藉簡銆佺繜鑻辨澃銆佸懆鍑嚂銆佸江鐐滄\n浼氳鍚嶇О锛氬厷鏀儴濮斿憳浼歕n\n浼氳绾锛氭湰娆′細璁紑灞曠涓€璁瀛︿範锛岃璁哄厷鍛樺彂灞曞伐浣溿€俓n- 绗竴璁锛氬涔犺璇濄€婁範杩戝钩锛氭帹鍔ㄥ叏姘戦槄璇汇€佸缓璁句功棣欑ぞ浼氥€媆n- 绗簩璁锛氳璁虹‘瀹氬厷鍛樺彂灞曞璞′汉閫?},
+  {"date":"2026骞?鏈?9鏃?,"title":"鑽闄㈣緟瀵煎憳宸ヤ綔渚嬩細","attendees":"鑽闄㈣緟瀵煎憳锛堥紟婀栨牎鍖恒€佹柊鍖烘牎鍖猴級","location":"瀹為獙妤?-315","content":"鏃堕棿锛?026骞?鏈?9鏃n鍦扮偣锛氬疄楠屾ゼ2-315\n涓绘寔浜猴細淇濇辰搴嗕功璁癨n鍙備細浜哄憳锛氳嵂瀛﹂櫌杈呭鍛橈紙榧庢箹鏍″尯銆佹柊鍖烘牎鍖猴級\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樺伐浣滀緥浼歕n\n浼氳绾锛氭湰娆′細璁儴缃插績鐞嗗仴搴锋暀鑲蹭富棰樼彮浼氾紝寮鸿皟蹇冪悊骞查鏈哄埗鍜屽伐浣滈噺鍖栥€俓n- 蹇冪悊鎴峰鐗硅壊娲诲姩锛屽畨鎺掔彮绾ф椿鍔╘n- 瀛﹀伐閮ㄦ渶鏂颁慨璁㈠唴瀹癸紝闆嗕綋淇锛屽舰鎴愬缓璁\n- 閬囧埌蹇冪悊闂锛岃鍚姩骞查鏈哄埗\n- 5鏈堜唤鍙紑鐢熷懡鏁欒偛銆佹劅鎭╂暀鑲层€佹€ф暀鑲蹭富棰樼彮浼氾紝娉ㄩ噸浼氳娲诲姩瀹炴晥\n- 杈呭鍛樺伐浣滅畝鎶ワ紝宸ヤ綔閲忓寲锛屽舰鎴愬伐浣滆褰曡〃锛屾暣浣撳伐浣滄眹鎶ラ噺鍖朶n- 瀛︾敓鍘诲悜瀹夊叏鎵撳崱\n- 鏀瑰杽宸ヤ綔锛氳皥璇濄€佸鏍℃矡閫歕n- 鍏抽敭鏁版嵁褰掓€伙紝24灏忔椂寮€鏈猴紝搴旀€ユ憚鍍忔満鍒禱n- 瀛︾敓蹇冪悊鍋ュ悍涓庣敓娲荤姸鍐佃皟鏌ラ棶鍗穃n- 棰勮搴擄紙蹇冪悊锛夛紝寮€灞曢潪璇勫垽鎬у€惧惉\n- 蹇冪悊鍜ㄨ璇佺浉鍏冲伐浣?},
+  {"date":"2026骞?鏈?9鏃?,"title":"鑽闄㈣緟瀵煎憳浼氳","attendees":"鑽闄㈤瀵笺€佸壇涔﹁銆佸壇涓讳换銆佽緟瀵煎憳","location":"2-315","content":"鏃堕棿锛?026骞?鏈?9鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氳嵂瀛﹂櫌棰嗗銆佸壇涔﹁銆佸壇涓讳换銆佽緟瀵煎憳\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樹細璁甛n\n浼氳绾锛氭湰娆′細璁眹鎶ヨ繎鏈熷伐浣滐紝閲嶇偣寮鸿皟蹇冪悊鍋ュ悍宸ヤ綔鍜屽績鐞嗗共棰勬祦绋嬨€俓n- 缈熻嫳鏉颁功璁颁綔杩戞湡宸ヤ綔鍐呭姹囨姤锛歕n- 蹇冪悊瓒ｅ懗娲诲姩\n- 瀛︽牎瑙勫垯瑙勫畾淇锛堝緛闆嗘剰瑙侊級\n- 鐣欐牎鍜岀鏍＄粺璁★細蹇冪悊闂銆佽韩浣撻棶棰樸€佺壒娈婃儏鍐礬n- 鐢熷懡瀹夊叏鐝細\n- 鍚勮緟瀵煎憳姹囨姤涓婂懆宸ヤ綔鎯呭喌\n- 闄堟斂鑰佸笀鍏充簬蹇冪悊瀛︾敓鐨勫綍鍏ユ儏鍐典粙缁峔n- 淇濅功璁颁綔鎬荤粨锛屾彁鍑鸿姹傦細\n- 蹇冪悊鍜ㄨ銆佸績鐞嗗共棰勬祦绋媆n- 蹇冪悊鍒ゆ柇锛氭儏缁尝鍔ㄦ瘮杈冨ぇ銆佹湁鑷潃鍊惧悜鍚屽锛屽惎鍔ㄥ績鐞嗗共棰勬祦绋?},
+  {"date":"2026骞?鏈?鏃?,"title":"鑽闄㈣緟瀵煎憳宸ヤ綔渚嬩細","attendees":"鑽闄㈣緟瀵煎憳锛堥紟婀栨牎鍖恒€佹柊鍖烘牎鍖猴級","location":"瀹為獙妤?-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛氬疄楠屾ゼ2-315\n涓绘寔浜猴細淇濇辰搴嗕功璁般€佺繜鑻辨澃鍓功璁癨n鍙備細浜哄憳锛氳嵂瀛﹂櫌杈呭鍛橈紙榧庢箹鏍″尯銆佹柊鍖烘牎鍖猴級\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樺伐浣滀緥浼歕n\n浼氳绾锛氭湰娆′細璁己璋冨伐浣滈噺鍖栨眹鎶ワ紝閮ㄧ讲杩旀牎鑰冨嫟鍜屽洶闅惧鐢熷府鎵躲€俓n- 杈呭鍛樺伐浣滃懆姹囨姤锛岄噺鍖栨眹鎶ユ棩甯稿伐浣滐紙宸¤绛夛級\n- 姹囨€绘儏鍐甸渶瑕佷笁绾胯〃锛岃█绠€鎰忚祬锛屾眹鎶ユ帶鍒舵椂闂碶n- 闀垮亣鍚庤鍋囨牳瀹烇紝鍒版牎銆佸埌鍕ゆ儏鍐礬n- 閲嶇偣鍏虫敞浜虹兢锛屽寮€灞曡皥蹇冭皥璇漒n- 寮曞瀛︾敓锛屽煿鍏诲鐢熸€濊鲸鑳藉姏\n- 鍒╃敤涓撲笟浼樺娍锛屽甫棰嗗洟闃熺户缁姫鍔涳紝鍐嶅垱浣崇哗\n- 瀵瑰緟瀛︾敓宸ヤ綔锛岀敤蹇冦€佺敤鎯匼n- 缁忔祹鍥伴毦瀛︾敓鍙互鐢宠涓存椂鍥伴毦琛ュ姪"},
+  {"date":"2026骞?鏈?鏃?,"title":"鑽闄㈣緟瀵煎憳浼氳","attendees":"鑽闄功璁般€佸壇涔﹁銆佸叏浣撹緟瀵煎憳","location":"2-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氳嵂瀛﹂櫌涔﹁銆佸壇涔﹁銆佸叏浣撹緟瀵煎憳\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樹細璁甛n\n浼氳绾锛氭湰娆′細璁繘琛屽伐浣滄眹鎶ワ紝寮鸿皟浜斾竴杩旀牎鏁版嵁缁熻鍜屽鐢熺鐞嗐€俓n- 鍚勫吋鑱岃緟瀵煎憳姹囨姤宸ヤ綔鍐呭\n- 绋嬩功璁板伐浣滄眹鎶ワ細\n- 5鏈?鏃ヨ繑鏍℃暟鎹粺璁n- 瀹炰範瀛︾敓妗ｆ銆佺患娴嬨€佹垚缁┿€佸績鐞嗘湁闂绛夐棶棰榎n- 瀹胯垗鐭涚浘\n- 淇濅功璁颁綔鎬荤粨锛歕n- 蹇冪悊宸ヤ綔\n- 瀹夊叏宸ヤ綔\n- 涓ユ牸璇峰亣娴佺▼"},
+  {"date":"2026骞?鏈?3鏃?,"title":"鑽闄㈣緟瀵煎憳渚嬩細","attendees":"鑽闄㈠叏浣撹緟瀵煎憳銆佸闄㈡鍓功璁?,"location":"瀹為獙妤?-315","content":"鏃堕棿锛?026骞?鏈?3鏃n鍦扮偣锛氬疄楠屾ゼ2-315\n涓绘寔浜猴細淇濇辰搴嗕功璁癨n鍙備細浜哄憳锛氳嵂瀛﹂櫌鍏ㄤ綋杈呭鍛樸€佸闄㈡鍓功璁癨n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樹緥浼歕n\n浼氳绾锛氭湰娆′細璁己璋冨伐浣滈噺鍖栧拰鑴辩姹囨姤锛岄噸鐐归儴缃插氨涓氥€佹€ф暀鑲插拰瀹炰範鍓嶅噯澶囧伐浣溿€俓n- 閲忓寲宸ヤ綔锛屽垪琛ㄦ寚鍑哄叿浣撹繘搴︺€佸仛娉昞n- 寤鸿姹囨姤鑴辩\n- 灏变笟鐜囧伐浣滐紝瀛︽牎鎺掑悕绗?锛屽叏鏃ュ埗涓撶灏变笟鐜囧亸浣嶾n- 姣忔棩宸ヤ綔鍙板笎\n- 灏变笟宸ヤ綔浜ゆ祦锛屽氨涓氭槸閲嶄腑涔嬮噸\n- 蹇冪悊闂澶勭疆\n- 鎬ф暀鑲诧紙瀹炰範鍓嶏級\n- 瀹胯垗鐭涚浘澶勭疆\n- 璇峰亣鏃堕棿銆佹椂闀跨鐞哱n- 蹇冪悊鐢靛奖锛氥€婇潚鏄ュ彉褰㈣銆媆n- 涓婄彮涓ユ牸绾緥\n- 鍥㈤槦绮剧\n- 瀹炰範鍓嶏紝鐝骇瀛︾敓鎯呯华銆佸氨涓氬疄鎿嶆寚瀵?},
+  {"date":"2026骞?鏈?3鏃?,"title":"2026-2027骞存暀瀛︺€佸疄涔犲伐浣滀笓棰樹細璁?,"attendees":"浜岀骇瀛﹂櫌姝ｅ壇涔﹁銆侀櫌闀裤€佽緟瀵煎憳","location":"琛屾斂妤?11","content":"鏃堕棿锛?026骞?鏈?3鏃n鍦扮偣锛氳鏀挎ゼ411\n涓绘寔浜猴細寤栫敓娲併€侀倱寤哄叏銆佹潕鏅洪攱\n鍙備細浜哄憳锛氫簩绾у闄㈡鍓功璁般€侀櫌闀裤€佽緟瀵煎憳\n浼氳鍚嶇О锛?026-2027骞存暀瀛︺€佸疄涔犲伐浣滀笓棰樹細璁甛n\n浼氳绾锛氭湰娆′細璁儴缃插疄涔犺垂鐢ㄥ拰鎷涚敓璁″垝鐩稿叧宸ヤ綔銆俓n- 瀹炰範璐逛竴闄竴绛栵紝瓒呭嚭瀛︽牎鏀粯璐圭敤锛岀敱瀛︾敓琛ラ綈\n- 浣忓璐圭洿鎺ョ敱瀛︾敓浜ょ粰瀹炰範鍗曚綅\n- 5鏈?6鏃ヤ笅鐝墠浠ュ闄氦榻怽n- 榛戣壊瀛椾綋锛屼笉鍒嗙敺濂砛n- 鏁翠綋娌℃湁浣忓锛屽叏鍛樻病鏈夋垨鏌愪釜鏀嚭娌℃湁\n- 澶囨敞鏄ˉ浜よ垂鐢紝浣忓璐规湁鍙傝€冿紙浠ユ湀涓哄崟浣嶏級\n- 鎺ㄨ崘缁勯暱\n- 璁ょ湡瀵瑰緟锛屼簨鍓嶅伐浣滅邯寰媆n- 2026骞存嫑鐢熻鍒掞細6000浜猴紝2600浜烘湰绉戯紝934浜洪珮鑱岋紝2326浜轰笓绉戯紝140浜轰笓鍗囨湰"},
+  {"date":"2026骞?鏈?9鏃?,"title":"鑽闄㈣緟瀵煎憳宸ヤ綔浼氳","attendees":"鑽闄功璁板壇涔﹁銆佸叏浣撹緟瀵煎憳","location":"2-315","content":"鏃堕棿锛?026骞?鏈?9鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氳嵂瀛﹂櫌涔﹁鍓功璁般€佸叏浣撹緟瀵煎憳\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樺伐浣滀細璁甛n\n浼氳绾锛氭湰娆′細璁繘琛屽伐浣滄眹鎶ワ紝棰嗗鎻愬嚭宸ヤ綔鎰忚锛屽己璋冭鍋囧拰瀹炰範淇濋櫓銆俓n- 鍚勪綅鍏艰亴銆佽緟瀵煎憳姹囨姤宸ヤ綔\n- 鏉庝繆娑涗功璁版彁鍑哄伐浣滄剰瑙乗n- 淇濅功璁版彁鍑哄伐浣滄剰瑙侊細\n- 杈呭鍛樿鍋囩鐞哱n- 瀛︾敓璇峰亣瀹℃壒\n- 瀹炰範淇濋櫓"},
+  {"date":"2026骞?鏈?9鏃?,"title":"杈呭鍛樺伐浣滀細璁?,"attendees":"杈呭鍛?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?9鏃n鍦扮偣锛?-315\n涓绘寔浜猴細璐句繚娉藉簡\n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳\n\n浼氳绾锛氭湰娆′細璁繘琛屽伐浣滄眹鎶ワ紝棰嗗璁茶瘽锛屽己璋冭鍋囨祦绋嬪拰瀹炰範淇濋櫓銆俓n- 姹囨姤宸ヤ綔\n- 鏉庝繆娑涗功璁拌璇漒n- 璇峰亣娴佺▼\n- 瀹炰範淇濋櫓"},
+  {"date":"2026骞?鏈?0鏃?,"title":"杈呭鍛樺伐浣滀細璁?,"attendees":"鑽闄㈠壇涔﹁銆佸叏浣撲笓鑱岃緟瀵煎憳","location":"7-200","content":"鏃堕棿锛?026骞?鏈?0鏃n鍦扮偣锛?-200\n涓绘寔浜猴細鏉庝繆娑沑n鍙備細浜哄憳锛氳嵂瀛﹂櫌鍓功璁般€佸叏浣撲笓鑱岃緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳\n\n浼氳绾锛氭湰娆′細璁己璋冪邯寰嬨€佸厷寤哄拰瀹胯垗鐭涚浘鎺掓煡銆俓n- 绾緥锛氳€冨嫟宸ヤ綔锛屾寜閮ㄥ氨鐝紝濡傚疄鎶ュ\n- 鍏氬缓锛氫笁浼氫竴璇綷n- 蹇冭吂闂锛氬鑸嶇煕鐩撅紝浠ヨ〃鏍煎舰寮忔眹鎬诲埌鐝骇锛屾帓鏌ラ闄╃偣"},
+  {"date":"2026骞?鏈?6鏃?,"title":"鑽闄㈣緟瀵煎憳渚嬩細","attendees":"鑽闄功璁般€佸壇涔﹁銆佸叏浣撹緟瀵煎憳","location":"2-315","content":"鏃堕棿锛?026骞?鏈?6鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氳嵂瀛﹂櫌涔﹁銆佸壇涔﹁銆佸叏浣撹緟瀵煎憳\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樹緥浼歕n\n浼氳绾锛氭湰娆′細璁繘琛屽伐浣滄眹鎶ワ紝寮鸿皟澶栧嚭鎶ュ鍜屽椤归噸鐐瑰伐浣滄帹杩涖€俓n- 涓撹亴杈呭鍛樻眹鎶?1-12鍛ㄥ伐浣滃唴瀹归噸鐐癸紝涓昏浜嬩欢鍒嗙被锛屽伐浣滃唴瀹瑰叿浣撴弿杩癨n- 澶栧嚭瀛︿範銆佽鍋囪璺熼瀵兼姤澶囷細涔﹁涓庡壇涔﹁閮借姹囨姤\n- 鏉庡拰寰佸伐浣滐細鈶犳湭浜ゅ璐?鈶′袱椤靛畼缃?鈶㈠氨涓氭帹杩涗細\n- 缈熶功璁板伐浣滐細鈶犲疄涔犵偣瀹夋帓宸ヤ綔 鈶℃。妗堟暣鐞?鈶㈣皥蹇冭皥璇漒n- 閲嶇偣宸ヤ綔锛氬氨涓氥€佸弬鍐涖€佸厷寤恒€佸績鐞嗛棶棰?},
+  {"date":"2026骞?鏈?6鏃?,"title":"杈呭鍛樺伐浣滀細璁?,"attendees":"杈呭鍛?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?6鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳\n\n浼氳绾锛氭湰娆′細璁己璋冨伐浣滄眹鎶ヨ鑼冨拰瀛︾敓绠＄悊澶氶」閲嶇偣宸ヤ綔銆俓n- 杈呭鍛樺伐浣滄眹鎶ワ紙鏃堕棿銆佹鏁版爣绾€佺畝娲併€佷笉瑕佸繕璁癙PT锛夛紝灞曞紑涓€鐐圭偣\n- 瀛︾敓浣忛櫌銆佺揣鎬ュ彂鐥呭憡鐭ュ壇涔﹁\n- 瀹氫綅鎵撳崱锛堝鐢熷幓鍚戯級锛屽鏍℃矡閫氥€佽皥蹇冭皥璇濊褰曘€佺彮骞查儴浼氳銆佸鑸嶉暱浼氳銆佽繚绾鐢熺鐞哱n- 澶栧嚭鎶ュ鐢宠琛紝澶栧嚭闇€鍜屽壇涔﹁銆佷功璁版眹鎶n- 鍏氬缓宸ヤ綔缃戠珯鏇存柊锛?鏈堝厷鏃ユ椿鍔╘n- 浜ゆ祦璋堝績璋堣瘽锛堜竴杞€佸叏鐝級锛氬疄涔犮€佸氨涓氥€佷汉闄呫€佸涓氬帇鍔涖€佺敓娲婚棶棰榎n- 鍥伴毦鐢熷氨涓歕n- 鑰冭瘯鏈堛€佽€冮鑰冪邯鐝細\n- 灏变笟銆佸緛鍏点€佸績鐞嗛棶棰樸€佸厷寤哄伐浣淺n- 鏃ュ父绠＄悊鐢卞壇涔﹁璐熻矗\n- 椋庨櫓鐐硅缁嗘帓鏌n- 灏变笟甯壎姹囨姤瀛︾敓鎯呭喌锛堟湭灏变笟銆佺洰鍓嶆儏鍐碉級"},
+  {"date":"2026骞?鏈?鏃?,"title":"鑽闄㈣緟瀵煎憳渚嬩細","attendees":"鍏ㄤ綋鑽闄㈠宸ラ槦浼?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴嗐€佹潕淇婃稕\n鍙備細浜哄憳锛氬叏浣撹嵂瀛﹂櫌瀛﹀伐闃熶紞\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樹緥浼歕n\n浼氳绾锛氭湰娆′細璁儴缃叉棩甯哥鐞嗐€佸氨涓氥€佸厷寤哄拰瀹炰範鍓嶆暀鑲茬瓑澶氶」宸ヤ綔銆俓n- 瀛︾敓鏃ュ父绠＄悊宸ヤ綔锛岃緟瀵煎憳鍛ㄦ眹鎶n- 涓存椂鍥伴毦琛ュ姪鐢宠\n- 涓婅鎶ご鐜囨彁鍗嘰n- 澶氬惉璇俱€佸宸¤\n- 鏍″洯鏀挎不瀹夊叏鍛紙6鏈?鏃?6鏈?鏃ワ級\n- 灏变笟鐜囬噸涓箣閲嶏紝楂樿川閲忓氨涓歕n- 鐪佺ぞ绉戣仈鐢虫姤\n- 浜插瓙鍏氬缓娲诲姩\n- 瀹炰範鍓嶆暀鑲瞈n- 妗ｆ鏁寸悊"},
+  {"date":"2026骞?鏈?鏃?,"title":"杈呭鍛樺伐浣滀細璁?,"attendees":"杈呭鍛?,"location":"2-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-315\n涓绘寔浜猴細鏉庝繆娑沑n鍙備細浜哄憳锛氳緟瀵煎憳\n浼氳鍚嶇О锛氳緟瀵煎憳宸ヤ綔浼氳\n\n浼氳绾锛氭湰娆′細璁儴缃叉瘯涓氱敓宸ヤ綔銆佹斂娌诲畨鍏ㄥ拰瀹夊叏绠＄悊銆俓n- 杈呭鍛樺伐浣滄眹鎶n- 姣曚笟鐢熸。妗堝～鎶n- 鏍″洯鏀挎不瀹夊叏宸ヤ綔浼氳锛屽叧娉ㄧ綉缁滆垎鎯匼n- 搴斿緛鍏ヤ紞宸ヤ綔锛堟瘯涓氱彮锛塡n- 鍔犲己瀹夊叏绠＄悊銆佹帓鏌n- 澶у姛鐜囩數鍣ㄦ帓鏌ワ紝杈冨樊瀹胯垗鏁存敼\n- 19鍛ㄣ€佸厷寤烘椿鍔紝401浜篭n- 瀹炰範鐢熺殑鎬濇兂鍔ㄦ€?},
+  {"date":"2026骞?鏈?鏃?,"title":"鑽闄㈣緟瀵煎憳渚嬩細","attendees":"鑽闄㈠叏浣撹緟瀵煎憳銆佷功璁般€佸壇涔﹁","location":"2-315","content":"鏃堕棿锛?026骞?鏈?鏃n鍦扮偣锛?-315\n涓绘寔浜猴細淇濇辰搴哱n鍙備細浜哄憳锛氳嵂瀛﹂櫌鍏ㄤ綋杈呭鍛樸€佷功璁般€佸壇涔﹁\n浼氳鍚嶇О锛氳嵂瀛﹂櫌杈呭鍛樹緥浼歕n\n浼氳绾锛氭湰娆′細璁繘琛屽伐浣滄眹鎶ワ紝閮ㄧ讲姣曚笟鐢熴€佸緛鍏点€佸畨鍏ㄧ瓑宸ヤ綔銆俓n- 鍏艰亴杈呭鍛樻眹鎶ュ伐浣滄儏鍐礬n- 鏉庝功璁板畨鎺掔浉鍏虫瘯涓氱敓銆佸簲寰佸叆浼嶃€佸鐢熷畨鍏ㄩ棶棰榎n- 缈熶功璁伴€氭姤鐩稿叧浜嬮」锛氣憼澶у姛鐜囩數鍣?鈶″崼鐢熻緝宸鑸峔n- 淇功璁板仛宸ヤ綔鎬荤粨"}
+];
+
+function getMonthKey(dateStr) {
+  const m = dateStr.match(/(\d+)鏈?);
+  return m ? parseInt(m[1]) : 0;
+}
+
+function getMonthName(m) {
+  const map = {3:'涓夋湀',4:'鍥涙湀',5:'浜旀湀',6:'鍏湀'};
+  return map[m] || '';
+}
+
+function renderMeetings() {
+  const timeline = document.getElementById('timeline');
+  let currentMonth = 0;
+  let html = '';
+
+  MEETINGS.forEach((m, idx) => {
+    const mk = getMonthKey(m.date);
+    if (mk !== currentMonth) {
+      currentMonth = mk;
+      html += `<div class="month-label">${getMonthName(mk)}</div>`;
+    }
+
+    html += `
+    <div class="meeting-card" id="card-${idx}">
+      <div class="card-header">
+        <span class="card-date">${m.date}</span>
+        <span class="card-title">${escapeHTML(m.title)}</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          ${escapeHTML(m.attendees)}
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          ${escapeHTML(m.location)}
+        </span>
+      </div>
+      <div class="card-body">
+        <pre id="body-${idx}">${escapeHTML(m.content)}</pre>
+        <button class="expand-btn" id="expand-${idx}" onclick="toggleExpand(${idx})">灞曞紑鍏ㄦ枃 鈻?/button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" id="copybtn-${idx}" onclick="copyMeeting(${idx})">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          涓€閿鍒?        </button>
+      </div>
+    </div>`;
+  });
+
+  timeline.innerHTML = html;
+
+  // Auto-collapse long content
+  MEETINGS.forEach((m, idx) => {
+    const pre = document.getElementById('body-' + idx);
+    if (pre && pre.scrollHeight <= pre.clientHeight + 4) {
+      const btn = document.getElementById('expand-' + idx);
+      if (btn) btn.style.display = 'none';
+      pre.classList.add('expanded');
+    }
+  });
+}
+
+function escapeHTML(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function toggleExpand(idx) {
+  const pre = document.getElementById('body-' + idx);
+  const btn = document.getElementById('expand-' + idx);
+  if (!pre || !btn) return;
+  const isExpanded = pre.classList.contains('expanded');
+  if (isExpanded) {
+    pre.classList.remove('expanded');
+    btn.textContent = '灞曞紑鍏ㄦ枃 鈻?;
+  } else {
+    pre.classList.add('expanded');
+    btn.textContent = '鏀惰捣 鈻?;
+  }
+}
+
+function copyMeeting(idx) {
+  const m = MEETINGS[idx];
+  const text = `銆?{m.date}銆?{m.title}\n鍦扮偣锛?{m.location}\n鍙備細浜哄憳锛?{m.attendees}\n\n${m.content}`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copybtn-' + idx);
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 宸插鍒禶;
+    showToast('浼氳鍐呭宸插鍒跺埌鍓创鏉?);
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> 涓€閿鍒禶;
+    }, 1800);
+  }).catch(() => {
+    showToast('澶嶅埗澶辫触锛岃閲嶈瘯');
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => toast.classList.remove('show'), 1800);
+}
+
+function exportPDF() {
+  showToast('姝ｅ湪鍑嗗瀵煎嚭 PDF鈥?);
+  setTimeout(() => window.print(), 300);
+}
+
+renderMeetings();
+</script>
+</body>
+</html>
