@@ -9,21 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: oklch(0.97 0.008 120);
-  --surface: oklch(0.99 0.004 120);
-  --surface-alt: oklch(0.95 0.012 120);
-  --text-primary: oklch(0.25 0.02 140);
-  --text-secondary: oklch(0.45 0.015 135);
-  --text-muted: oklch(0.6 0.01 130);
-  --accent: oklch(0.48 0.14 155);
-  --accent-light: oklch(0.75 0.08 150);
-  --accent-dim: oklch(0.6 0.1 155);
-  --gold: oklch(0.72 0.12 85);
-  --gold-light: oklch(0.88 0.08 88);
-  --divider: oklch(0.85 0.015 125);
-  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.06), 0 1px 2px oklch(0 0 0 / 0.04);
-  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.07), 0 2px 6px oklch(0 0 0 / 0.04);
-  --shadow-lg: 0 8px 32px oklch(0 0 0 / 0.09), 0 3px 10px oklch(0 0 0 / 0.05);
+  --bg: #f4f7f4;
+  --surface: #fdfdfd;
+  --surface-alt: #edf2ed;
+  --text-primary: #2d3a2d;
+  --text-secondary: #5a6b5a;
+  --text-muted: #889988;
+  --accent: #4a7c59;
+  --accent-light: #8fbc8f;
+  --accent-dim: #6b9b6b;
+  --gold: #c9a84c;
+  --gold-light: #e8dca0;
+  --divider: #d8e3d8;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.09), 0 3px 10px rgba(0,0,0,0.05);
   --radius: 0.75rem;
   --radius-sm: 0.5rem;
 }
@@ -42,20 +42,17 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
   min-height: 100vh;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.88 0.06 140 / 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 90% 80%, oklch(0.85 0.08 120 / 0.1), transparent);
 }
 
-/* ── Header ── */
+/* Header */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: oklch(0.99 0.003 120 / 0.85);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-bottom: 1px solid oklch(0.88 0.015 125 / 0.6);
-  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 5vw, 2rem);
+  background: rgba(253,253,253,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(216,227,216,0.6);
+  padding: 1rem 1.5rem;
 }
 
 .header-inner {
@@ -69,28 +66,25 @@ body {
 
 .header-title {
   font-family: 'Noto Serif SC', serif;
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
 }
 
 .header-badge {
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--accent);
-  background: oklch(0.85 0.06 150 / 0.25);
+  background: rgba(143,188,143,0.25);
   padding: 0.3em 0.75em;
   border-radius: 999px;
   white-space: nowrap;
-  letter-spacing: 0.03em;
 }
 
-/* ── Hero ── */
+/* Hero */
 .hero {
   max-width: 800px;
   margin: 0 auto;
-  padding: clamp(2rem, 6vw, 3.5rem) clamp(1rem, 5vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
+  padding: 2.5rem 1.5rem 1.5rem;
 }
 
 .hero-eyebrow {
@@ -99,16 +93,15 @@ body {
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero h1 {
   font-family: 'Noto Serif SC', serif;
-  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
   font-weight: 900;
   line-height: 1.25;
-  color: var(--text-primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-sub {
@@ -127,41 +120,33 @@ body {
   background: var(--accent-light);
 }
 
-/* ── Timeline Container ── */
+/* Timeline */
 .timeline {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 5vw, 2rem) clamp(3rem, 10vw, 6rem);
+  padding: 0 1.5rem 6rem;
   position: relative;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: clamp(1rem, 5vw, 2rem);
+  left: 1.5rem;
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--accent-light),
-    oklch(0.85 0.02 130) 80%,
-    transparent
-  );
+  background: linear-gradient(to bottom, var(--accent-light), #d8e3d8 80%, transparent);
 }
 
-/* ── Month Label ── */
+/* Month label */
 .month-label {
   position: relative;
-  margin: 2rem 0 1.2rem clamp(1.5rem, 5.5vw, 2.5rem);
+  margin: 2rem 0 1.2rem 2rem;
   font-family: 'Noto Serif SC', serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--accent-dim);
   letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
 
 .month-label::before {
@@ -170,48 +155,29 @@ body {
   height: 12px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px oklch(0.75 0.1 150 / 0.25);
+  box-shadow: 0 0 0 4px rgba(143,188,143,0.3);
   position: absolute;
-  left: calc(-1 * (clamp(1.5rem, 5.5vw, 2.5rem) - 1rem + 13px));
+  left: -1.5rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.month-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: oklch(0.85 0.015 125 / 0.5);
-  max-width: 3rem;
-}
-
-/* ── Meeting Card ── */
+/* Card */
 .meeting-card {
   position: relative;
-  margin-left: clamp(1.5rem, 5.5vw, 2.5rem);
+  margin-left: 2rem;
   margin-bottom: 1.25rem;
   background: var(--surface);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  border: 1px solid oklch(0.9 0.01 125 / 0.5);
+  border: 1px solid rgba(216,227,216,0.5);
   overflow: hidden;
-  transition: box-shadow 0.25s ease-out, transform 0.25s ease-out;
 }
 
-.meeting-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
-
-.meeting-card:active {
-  transform: translateY(0);
-}
-
-/* Card dot */
 .meeting-card::before {
   content: '';
   position: absolute;
-  left: calc(-1 * (clamp(1.5rem, 5.5vw, 2.5rem) - 1rem + 9px));
+  left: -1.5rem;
   top: 1.5rem;
   width: 8px;
   height: 8px;
@@ -220,22 +186,6 @@ body {
   border: 2px solid var(--bg);
   z-index: 2;
 }
-
-/* Card accent bar */
-.meeting-card::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--accent), var(--accent-light) 80%);
-  border-radius: 3px 0 0 3px;
-  opacity: 0;
-  transition: opacity 0.25s ease-out;
-}
-
-.meeting-card:hover::after { opacity: 1; }
 
 .card-header {
   padding: 1rem 1.25rem 0;
@@ -249,10 +199,9 @@ body {
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--accent);
-  letter-spacing: 0.04em;
   white-space: nowrap;
   padding: 0.25em 0.6em;
-  background: oklch(0.85 0.06 150 / 0.18);
+  background: rgba(143,188,143,0.18);
   border-radius: var(--radius-sm);
 }
 
@@ -298,19 +247,16 @@ body {
   color: var(--text-secondary);
   white-space: pre-wrap;
   word-break: break-word;
-  background: none;
-  padding: 0;
   margin: 0;
-  max-height: 12em;
+}
+
+.card-body pre.collapsed {
+  max-height: 10em;
   overflow: hidden;
   position: relative;
 }
 
-.card-body pre.expanded {
-  max-height: none;
-}
-
-.card-body pre:not(.expanded)::after {
+.card-body pre.collapsed::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -318,7 +264,6 @@ body {
   right: 0;
   height: 3em;
   background: linear-gradient(to bottom, transparent, var(--surface));
-  pointer-events: none;
 }
 
 .card-body .expand-btn {
@@ -330,9 +275,8 @@ body {
   background: none;
   font-family: inherit;
   padding: 0.3em 0;
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
 }
 
 .card-body .expand-btn:hover {
@@ -341,8 +285,6 @@ body {
 
 .card-actions {
   padding: 0.75rem 1.25rem 1rem;
-  display: flex;
-  gap: 0.6rem;
 }
 
 .btn {
@@ -356,18 +298,16 @@ body {
   border-radius: var(--radius-sm);
   cursor: pointer;
   border: none;
-  transition: all 0.18s ease-out;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
+  transition: all 0.18s;
 }
 
 .btn-copy {
-  background: oklch(0.85 0.06 150 / 0.22);
+  background: rgba(143,188,143,0.22);
   color: var(--accent);
 }
 
 .btn-copy:hover {
-  background: oklch(0.8 0.08 155 / 0.3);
+  background: rgba(143,188,143,0.35);
   box-shadow: var(--shadow-sm);
 }
 
@@ -376,21 +316,21 @@ body {
 }
 
 .btn-copy.copied {
-  background: oklch(0.78 0.1 150 / 0.35);
-  color: oklch(0.4 0.12 150);
+  background: rgba(107,155,107,0.35);
+  color: var(--accent-dim);
 }
 
 .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-/* ── Footer / Export ── */
+/* Footer */
 .footer {
   position: sticky;
   bottom: 0;
   z-index: 100;
-  background: oklch(0.99 0.003 120 / 0.85);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-top: 1px solid oklch(0.88 0.015 125 / 0.6);
-  padding: 0.85rem clamp(1rem, 5vw, 2rem);
+  background: rgba(253,253,253,0.85);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(216,227,216,0.6);
+  padding: 0.85rem 1.5rem;
   display: flex;
   justify-content: center;
 }
@@ -402,7 +342,6 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .footer-info {
@@ -417,26 +356,26 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   border-radius: var(--radius);
-  letter-spacing: 0.03em;
-  box-shadow: 0 2px 8px oklch(0.48 0.14 155 / 0.25);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(74,124,89,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: inherit;
 }
 
 .btn-export:hover {
-  background: oklch(0.42 0.14 155);
-  box-shadow: 0 4px 16px oklch(0.48 0.14 155 / 0.35);
-  transform: translateY(-1px);
+  background: #3d6b4a;
+  box-shadow: 0 4px 16px rgba(74,124,89,0.35);
 }
 
-.btn-export:active {
-  transform: translateY(0);
-}
-
-/* ── Toast ── */
+/* Toast */
 .toast {
   position: fixed;
   bottom: 5rem;
   left: 50%;
-  transform: translateX(-50%) translateY(0.5rem);
+  transform: translateX(-50%);
   background: var(--text-primary);
   color: var(--surface);
   font-size: 0.82rem;
@@ -445,158 +384,50 @@ body {
   font-weight: 500;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.25s ease-out;
+  transition: opacity 0.25s;
   z-index: 200;
   box-shadow: var(--shadow-lg);
-  letter-spacing: 0.02em;
 }
 
 .toast.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
 }
 
-/* ── Print Styles for PDF ── */
-@media print {
-  @page { margin: 1.5cm 1cm; size: A4; }
-
-  body {
-    background: #fff !important;
-    background-image: none !important;
-    font-size: 11pt;
-    color: #1a1a1a;
-    line-height: 1.6;
-  }
-
-  .header,
-  .footer,
-  .btn,
-  .card-body .expand-btn,
-  .toast,
-  .hero-eyebrow,
-  .card-actions,
-  .card-date,
-  .card-meta,
-  .timeline::before,
-  .meeting-card::before,
-  .meeting-card::after,
-  .month-label::before,
-  .month-label::after,
-  .header-badge,
-  .hero-sub .sep,
-  .card-body pre::after {
-    display: none !important;
-  }
-
-  .hero h1 {
-    font-size: 18pt;
-    text-align: center;
-    margin-bottom: 1rem;
-    font-weight: 900;
-  }
-
-  .hero-sub {
-    text-align: center;
-    justify-content: center;
-    font-size: 10pt;
-  }
-
-  .timeline {
-    padding: 0 0.5rem;
-  }
-
-  .meeting-card {
-    margin-left: 0;
-    box-shadow: none;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0;
-    background: #fff;
-    page-break-inside: avoid;
-    padding: 0.5rem 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-header {
-    padding: 0;
-  }
-
-  .card-title {
-    font-size: 12pt;
-    font-weight: 700;
-  }
-
-  .card-body {
-    padding: 0.3rem 0 0;
-  }
-
-  .card-body pre {
-    max-height: none;
-    font-size: 9.5pt;
-    color: #333;
-    line-height: 1.55;
-    font-family: 'Noto Sans SC', system-ui, sans-serif;
-  }
-
-  .card-body pre::after { display: none; }
-
-  .month-label {
-    margin: 0.8rem 0 0.4rem;
-    font-size: 11pt;
-    border-bottom: 2px solid #333;
-  }
-
-  .hero { padding: 1rem 0.5rem; }
-}
-
-@media print and (color) {
-  .card-title { color: #1a472a; }
-  .month-label { color: #2d6a4f; }
-}
-
-/* ── Mobile ── */
+/* Mobile */
 @media (max-width: 600px) {
-  .timeline::before {
-    left: 0.75rem;
-  }
-
-  .meeting-card {
-    margin-left: 2rem;
-  }
-
-  .month-label {
-    margin-left: 2rem;
-    font-size: 0.9rem;
-  }
-
-  .meeting-card::before {
-    left: calc(-1 * (2rem - 1rem + 9px));
-    top: 1.2rem;
-  }
-
-  .card-header {
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.85rem 1rem 0;
-  }
-
+  .timeline::before { left: 0.75rem; }
+  .meeting-card { margin-left: 1.75rem; }
+  .month-label { margin-left: 1.75rem; font-size: 0.9rem; }
+  .meeting-card::before { left: -1.25rem; }
+  .card-header { flex-direction: column; gap: 0.4rem; padding: 0.85rem 1rem 0; }
   .card-meta { padding: 0.5rem 1rem 0; }
   .card-body { padding: 0.6rem 1rem 0; }
   .card-actions { padding: 0.6rem 1rem 0.85rem; }
-
-  .btn-copy {
-    flex: 1;
-    justify-content: center;
-  }
 }
 
-/* reduce motion */
+/* Print */
+@media print {
+  @page { margin: 1.5cm 1cm; size: A4; }
+  body { background: #fff !important; font-size: 11pt; color: #1a1a1a; }
+  .header, .footer, .btn, .expand-btn, .toast, .hero-eyebrow, .card-actions, .card-date, .card-meta,
+  .timeline::before, .meeting-card::before, .month-label::before, .header-badge, .hero-sub .sep,
+  .card-body pre.collapsed::after { display: none !important; }
+  .hero h1 { font-size: 18pt; text-align: center; margin-bottom: 1rem; font-weight: 900; }
+  .hero-sub { text-align: center; justify-content: center; font-size: 10pt; }
+  .timeline { padding: 0 0.5rem; }
+  .meeting-card { margin-left: 0; box-shadow: none; border: none; border-bottom: 1px solid #ddd; border-radius: 0; background: #fff; page-break-inside: avoid; padding: 0.5rem 0; margin-bottom: 0.5rem; }
+  .card-body pre.collapsed { max-height: none; }
+  .card-body pre.collapsed::after { display: none; }
+  .card-body pre.full-content { display: block !important; }
+  .card-body pre.collapsed { display: none !important; }
+  .card-title { font-size: 12pt; font-weight: 700; }
+  .card-body pre { font-size: 9.5pt; color: #333; line-height: 1.55; }
+  .month-label { margin: 0.8rem 0 0.4rem; font-size: 11pt; border-bottom: 2px solid #333; }
+  .hero { padding: 1rem 0.5rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .meeting-card,
-  .btn,
-  .toast {
-    transition: none;
-  }
+  .btn { transition: none; }
 }
 </style>
 </head>
@@ -619,12 +450,1312 @@ body {
   </p>
 </section>
 
-<div class="timeline" id="timeline"></div>
+<div class="timeline">
+<div class="month-label">三月</div>
+
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年3月5日</span>
+        <span class="card-title">辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年3月5日
+地点：2-315
+主持人：保泽庆、翟英杰
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议主要部署辅导员各项日常工作，涵盖思政育人、安全管理、心理健康、反诈宣传等多个方面。
+- 思政育人工作：组织开展鲜明特色的主题班会，创新开展形式</pre><pre class="full-content" style="display:none">时间：2026年3月5日
+地点：2-315
+主持人：保泽庆、翟英杰
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议主要部署辅导员各项日常工作，涵盖思政育人、安全管理、心理健康、反诈宣传等多个方面。
+- 思政育人工作：组织开展鲜明特色的主题班会，创新开展形式
+- 安全管理工作：跟进返校学生人数，多加关注家中突发变故学生
+- 更新心理云平台，跟进预警学生心理动态
+- 开展反诈宣传教育
+- 加强电动车管理
+- 推进心理辅导站建设
+- 落实晚自习管理
+- 做好奖助贷工作
+- 申报辅导员工作室建设项目，筹备工作论坛</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年3月5日">辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年3月16日</span>
+        <span class="card-title">辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年3月16日
+地点：2-315
+主持人：保泽庆、翟英杰
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议部署近期重点工作，包括反诈禁毒教育、招聘会动员、学生事务办理等。
+- 3月9日反诈主题工作会议，开展禁毒、性教育</pre><pre class="full-content" style="display:none">时间：2026年3月16日
+地点：2-315
+主持人：保泽庆、翟英杰
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议部署近期重点工作，包括反诈禁毒教育、招聘会动员、学生事务办理等。
+- 3月9日反诈主题工作会议，开展禁毒、性教育
+- 做好招聘会动员工作
+- 周三实习生宣讲会，19:00学术报告厅
+- 活动排班安排
+- 休学、退学、走读程序办理
+- 落实学生转专业相关事务性工作
+- 做好传染性疾病上报工作
+- 开展学院文明宿舍评选
+- 心理辅导站勤工俭学岗位面试</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年3月16日">辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年3月23日</span>
+        <span class="card-title">药学院辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          全体药学院辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315（新区）
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年3月23日
+地点：2-315（新区）
+主持人：保泽庆、翟英杰
+参会人员：全体药学院辅导员
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议重点强调班风学风建设、安全管理和招聘会筹备工作。
+- 抓紧班风建设：课室卫生、学生仪容仪表、文明礼貌</pre><pre class="full-content" style="display:none">时间：2026年3月23日
+地点：2-315（新区）
+主持人：保泽庆、翟英杰
+参会人员：全体药学院辅导员
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议重点强调班风学风建设、安全管理和招聘会筹备工作。
+- 抓紧班风建设：课室卫生、学生仪容仪表、文明礼貌
+- 严抓大功率电器违禁使用，开展文明宿舍评比工作
+- 工作下沉，摸排学生情况
+- 加强课堂考勤，特别是周一上午和周五下午考勤
+- 3月29日（星期天）校园招聘会，150+用人单位
+- 做好心理工作总结</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年3月23日">药学院辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年3月26日</span>
+        <span class="card-title">药学院党总支2025年度组织生活会和民主评议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院全体教师党员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          实验楼2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年3月26日
+地点：实验楼2-315
+主持人：翟英杰书记
+参会人员：药学院全体教师党员
+会议名称：药学院党总支2025年度组织生活会和民主评议
+
+会议纪要：本次党员会议开展年度工作总结、批评与自我批评，并部署党建工作。
+- 保泽庆同志作2025年度工作总结</pre><pre class="full-content" style="display:none">时间：2026年3月26日
+地点：实验楼2-315
+主持人：翟英杰书记
+参会人员：药学院全体教师党员
+会议名称：药学院党总支2025年度组织生活会和民主评议
+
+会议纪要：本次党员会议开展年度工作总结、批评与自我批评，并部署党建工作。
+- 保泽庆同志作2025年度工作总结
+- 开展批评与自我批评
+- 加强沟通，畅通各部门工作流程
+- 建立接待日，加强学生与学院沟通
+- 构建“党建+”主题党日，打造有特色的高质量党建
+- 勇于担当，敢于作为</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年3月26日">药学院党总支2025年度组织生活会和民主评议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年3月31日</span>
+        <span class="card-title">药学院辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          全体辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          实验楼2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年3月31日
+地点：实验楼2-315
+主持人：保泽庆、翟英杰书记
+参会人员：全体辅导员
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议重点强调学生问题处置、团队建设和工作作风，部署反诈、实习等工作。
+- 做好学生退费工作</pre><pre class="full-content" style="display:none">时间：2026年3月31日
+地点：实验楼2-315
+主持人：保泽庆、翟英杰书记
+参会人员：全体辅导员
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议重点强调学生问题处置、团队建设和工作作风，部署反诈、实习等工作。
+- 做好学生退费工作
+- 学生身体问题紧急处置流程
+- 妥善处理学生投诉事件和学生殴打、辱骂老师等问题
+- 学生安排实习点，注意特殊人群
+- 防范学生失联问题
+- 建立周末外出台帐
+- 学生反诈工作（刷单返利案例居多），每个月开展反诈班会
+- 学生问题处置汇报需详细，做好后续跟进
+- 工作作风：忠诚、干净、担当，随时沟通
+- 团队协作，队伍建设，互相帮助、互相监督
+- 精益求精，树立规范意识、公平意识
+- 风清气正，做好职称评审相关帮助工作</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年3月31日">药学院辅导员工作会议</button>
+      </div>
+    </div><div class="month-label">四月</div>
+
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月1日</span>
+        <span class="card-title">2026年征兵工作动员部署会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          二级学院党总支书记、副书记、辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          初心堂
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月1日
+地点：初心堂
+主持人：廖明生
+参会人员：二级学院党总支书记、副书记、辅导员
+会议名称：2026年征兵工作动员部署会
+
+会议纪要：本次会议进行征兵工作经验分享和表彰。
+- 邓婉莹老师汇报征兵工作经验</pre><pre class="full-content" style="display:none">时间：2026年4月1日
+地点：初心堂
+主持人：廖明生
+参会人员：二级学院党总支书记、副书记、辅导员
+会议名称：2026年征兵工作动员部署会
+
+会议纪要：本次会议进行征兵工作经验分享和表彰。
+- 邓婉莹老师汇报征兵工作经验
+- 优秀组织奖颁奖仪式</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月1日">2026年征兵工作动员部署会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月1日</span>
+        <span class="card-title">守正创新 赋能成长——2026年辅导员工作论坛</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          行政楼初心堂
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月1日
+地点：行政楼初心堂
+主持人：学生工作部
+参会人员：辅导员
+会议名称：守正创新 赋能成长——2026年辅导员工作论坛
+
+会议纪要：本次辅导员工作论坛分享工作心得，探讨学生工作方法与案例提炼。
+- 学生工作没有捷径，全靠真心、专心、责任心</pre><pre class="full-content" style="display:none">时间：2026年4月1日
+地点：行政楼初心堂
+主持人：学生工作部
+参会人员：辅导员
+会议名称：守正创新 赋能成长——2026年辅导员工作论坛
+
+会议纪要：本次辅导员工作论坛分享工作心得，探讨学生工作方法与案例提炼。
+- 学生工作没有捷径，全靠真心、专心、责任心
+- 真心对待学生，与学生相处共情，一句关心、一次倾听、一回坚守，可能就改变一个学生的状态
+- 继续把小事做细，把细事做透
+- 向学生展现出善意，学生会给予辅导员正向反馈
+- 论坛感想：工作经验积累→提炼案例→上升理论，形成可推广、可复制的学生工作案例
+- 定期、不定期开展二级学院辅导员论坛
+- “三支一扶”相关工作</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月1日">守正创新 赋能成长——2026年辅导员工作论坛</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月1日</span>
+        <span class="card-title">辅导员工作论坛</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          初心堂
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月1日
+地点：初心堂
+主持人：（未注明）
+参会人员：辅导员
+会议名称：辅导员工作论坛
+
+会议纪要：本次论坛围绕辅导员工作的多个主题进行经验分享与交流。
+- “从受助”到助人：发展型资助视域下高投入的场景</pre><pre class="full-content" style="display:none">时间：2026年4月1日
+地点：初心堂
+主持人：（未注明）
+参会人员：辅导员
+会议名称：辅导员工作论坛
+
+会议纪要：本次论坛围绕辅导员工作的多个主题进行经验分享与交流。
+- “从受助”到助人：发展型资助视域下高投入的场景
+- 护航成长：高校就业指导工作体系构建与实践
+- 专业适配错位学生帮扶模式的探索与实践
+- 从预警到守护：教育者视角下的校园心理危机识别与应对实录
+- 数字化赋能高校班级日常管理与精准就业服务
+- “从精准防”到深度愈：辅导员电信网络诈骗防治
+- 以新以柔性管理与人文关怀化解学生宿舍矛盾
+- 实践育人助振兴 产业赋能润思政
+- 以赛优学</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月1日">辅导员工作论坛</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月2日</span>
+        <span class="card-title">2023届毕业生就业工作推进会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          保泽庆、翟英杰、药学院全体教职工
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月2日
+地点：2-315
+主持人：汪海涛
+参会人员：保泽庆、翟英杰、药学院全体教职工
+会议名称：2023届毕业生就业工作推进会
+
+会议纪要：本次会议分析就业现状，部署全员就业推进工作，建立帮扶机制。
+- 就业率情况说明：药学院就业率36.34%，学校平均39%</pre><pre class="full-content" style="display:none">时间：2026年4月2日
+地点：2-315
+主持人：汪海涛
+参会人员：保泽庆、翟英杰、药学院全体教职工
+会议名称：2023届毕业生就业工作推进会
+
+会议纪要：本次会议分析就业现状，部署全员就业推进工作，建立帮扶机制。
+- 就业率情况说明：药学院就业率36.34%，学校平均39%
+- 分析我校往年就业现状及毕业生面临的挑战
+- 慢就业、观望态度，学生就业求职意愿不强烈
+- 专升本人数122人（2025年）
+- 底数不清：求职意愿、区域、意向工作、反馈不清
+- 学生就业定位不清楚——专科生进医院定位问题
+- 就业指导精准度不足，需开展问卷调查
+- 就业信息渠道待拓宽
+- 心理疏导机制不完善
+- 全员参与就业动员，建立“一对多”结对机制和“一生一策”精准帮扶
+- 建立学院帮扶机制、结对帮扶机制、动态跟踪反馈机制</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月2日">2023届毕业生就业工作推进会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月3日</span>
+        <span class="card-title">心理排查工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          心理咨询中心李敏主任、学工部部长李小兰、新区辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          7-110
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月3日
+地点：7-110
+主持人：保泽庆
+参会人员：心理咨询中心李敏主任、学工部部长李小兰、新区辅导员
+会议名称：心理排查工作会议
+
+会议纪要：本次会议汇报学院心理问题学生情况，学习心理识别与谈心谈话技巧。
+- 学院心理问题学生情况汇报</pre><pre class="full-content" style="display:none">时间：2026年4月3日
+地点：7-110
+主持人：保泽庆
+参会人员：心理咨询中心李敏主任、学工部部长李小兰、新区辅导员
+会议名称：心理排查工作会议
+
+会议纪要：本次会议汇报学院心理问题学生情况，学习心理识别与谈心谈话技巧。
+- 学院心理问题学生情况汇报
+- 心理云平台、心理日报表使用
+- 谈心谈话技巧培训
+- 学习如何识别心理问题</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月3日">心理排查工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月10日</span>
+        <span class="card-title">征兵入伍工作专题培训</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          二级学院党总支副书记、全体辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          行政楼413、综合楼411
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月10日
+地点：行政楼413、综合楼411
+主持人：廖明生
+参会人员：二级学院党总支副书记、全体辅导员
+会议名称：征兵入伍工作专题培训
+
+会议纪要：本次培训详细讲解征兵入伍的全流程、政策要求和注意事项。
+- 孙德满老师征兵工作指导，学习最新指南</pre><pre class="full-content" style="display:none">时间：2026年4月10日
+地点：行政楼413、综合楼411
+主持人：廖明生
+参会人员：二级学院党总支副书记、全体辅导员
+会议名称：征兵入伍工作专题培训
+
+会议纪要：本次培训详细讲解征兵入伍的全流程、政策要求和注意事项。
+- 孙德满老师征兵工作指导，学习最新指南
+- 网上报名、初检初核、体检政考流程
+- 学校所在地、户籍所在地应征选择：广东→肇庆→端州→肇庆医学院
+- 务必扫码进群：1月初、6月初
+- 新增心理测试（只有一次机会，没有复检机会），若不合格直接淘汰
+- 在校表现评分（指南有模板）
+- 体能测试（新增），加分项目（县级以上获奖，系统自动加分），减分项目（体检有瑕疵，系统自动减分）
+- 大学生（10分），高中毕业生（8分）
+- 粤东、粤西人口大县竞争十分激烈，在校入伍相对机会更大
+- 近视手术8000元补贴
+- 女生：综合分=文化（40%）+思想（30%）+身体（30%），不合格直接淘汰
+- 熟悉三笔帐
+- 在校全程，分阶段推进
+- 体能测试：男1000米，女800米，立定跳远，引体向上</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月10日">征兵入伍工作专题培训</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月13日</span>
+        <span class="card-title">药学院辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院辅导员（新区校区、鼎湖校区）
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          7-109、实验楼2-513
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月13日
+地点：7-109、实验楼2-513
+主持人：翟英杰、保泽庆书记
+参会人员：药学院辅导员（新区校区、鼎湖校区）
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议强调危机意识和工作纪律，部署心理平台完善、学生管理等工作。
+- 完善心理云平台资料，扎实资料</pre><pre class="full-content" style="display:none">时间：2026年4月13日
+地点：7-109、实验楼2-513
+主持人：翟英杰、保泽庆书记
+参会人员：药学院辅导员（新区校区、鼎湖校区）
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议强调危机意识和工作纪律，部署心理平台完善、学生管理等工作。
+- 完善心理云平台资料，扎实资料
+- 加强课堂考勤，学生课间去向、晚习情况，迟到早退
+- 学校学生使用无人机情况登记备案
+- 在校学生辅导员本周24小时在岗（学工要求）
+- 8个专任、13个兼职辅导员（教学院）
+- 反思工作，查漏补缺，提高危机意识
+- 加强反诈教育，开展班会性教育、财产教育
+- 注意网络舆情，做好学生引导
+- 有规矩意识、纪律意识，忠诚、干净、担当
+- 周末学生去向管理，做好报备
+- 引导学生多参与学生活动、科研活动
+- 复读、健休学相关工作
+- 24小时7天全程在岗
+- 学费拖欠的，了解情况
+- 未满18周岁学生统计
+- 外出学生需家长知情
+- 走读材料补充、更新，休学材料办理
+- 无课时间把控
+- 周末外出登记表管理
+- 共同处理紧急情况</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月13日">药学院辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月16日</span>
+        <span class="card-title">党支部党员大会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          党支部教师党员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月16日
+地点：2-315
+主持人：保泽庆、翟英杰
+参会人员：党支部教师党员
+会议名称：党支部党员大会
+
+会议纪要：本次会议开展第一议题学习，强调育人初心。
+- 第一议题：学习习近平总书记重要文章《树立和践行正确政绩观》</pre><pre class="full-content" style="display:none">时间：2026年4月16日
+地点：2-315
+主持人：保泽庆、翟英杰
+参会人员：党支部教师党员
+会议名称：党支部党员大会
+
+会议纪要：本次会议开展第一议题学习，强调育人初心。
+- 第一议题：学习习近平总书记重要文章《树立和践行正确政绩观》
+- 坚守育人初心，以生为本、思想引领</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月16日">党支部党员大会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月21日</span>
+        <span class="card-title">学校领导调研药学院学工工作</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          新区辅导员、学院领导、学校领导
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          7-200
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月21日
+地点：7-200
+主持人：鄂云容书记
+参会人员：新区辅导员、学院领导、学校领导
+会议名称：学校领导调研药学院学工工作
+
+会议纪要：本次调研会议听取学工工作汇报，就辅导员队伍建设和工作方法提出指导意见。
+- 8名专任、13名兼职辅导员队伍情况</pre><pre class="full-content" style="display:none">时间：2026年4月21日
+地点：7-200
+主持人：鄂云容书记
+参会人员：新区辅导员、学院领导、学校领导
+会议名称：学校领导调研药学院学工工作
+
+会议纪要：本次调研会议听取学工工作汇报，就辅导员队伍建设和工作方法提出指导意见。
+- 8名专任、13名兼职辅导员队伍情况
+- 建议兼职辅导员转为班主任，以专职辅导员为主
+- 每半月汇报辅导员日常工作，加强工作联动性
+- 考研专题讲座（周三）、读书节——南方医优秀辅导员讲座、心理讲座、药学院性教育（周四）
+- 工作留痕是需要的，但是不能过度，应注重实效
+- 合理、科学的培训会、案例分享会有利于辅导员提高育人实效
+- 提倡案例式教学，调整师生沟通方式，让情绪、内容入心入脑
+- 提高学生思辨性
+- 突发性学生事件对辅导员工作的启发
+- 开展草坪班会、操场班会
+- 偶发事件应对</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月21日">学校领导调研药学院学工工作</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月21日</span>
+        <span class="card-title">辅导员工作会议（周例会）</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院全体专兼任辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-510
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月21日
+地点：2-510
+主持人：保泽庆书记
+参会人员：药学院全体专兼任辅导员
+会议名称：辅导员工作会议（周例会）
+
+会议纪要：本次会议部署考研讲座、学生请假制度和就业等工作。
+- 专升本、考研讲座，朋辈力量引领学业规划，提高学生参与度</pre><pre class="full-content" style="display:none">时间：2026年4月21日
+地点：2-510
+主持人：保泽庆书记
+参会人员：药学院全体专兼任辅导员
+会议名称：辅导员工作会议（周例会）
+
+会议纪要：本次会议部署考研讲座、学生请假制度和就业等工作。
+- 专升本、考研讲座，朋辈力量引领学业规划，提高学生参与度
+- 学生请假制度：跨过周六、周日需计算在内
+- 工作留痕，做好记录
+- 欠费追缴，柔性催促
+- 形成学院案例集
+- 学校正在进行基层副职竞聘
+- 每周辅导员工作汇报（专、兼任辅导员轮流）
+- 就业工作推进</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月21日">辅导员工作会议（周例会）</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月23日</span>
+        <span class="card-title">党支部委员会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          保泽庆、翟英杰、周凯燕、彭炜桐
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月23日
+地点：2-315
+主持人：保泽庆
+参会人员：保泽庆、翟英杰、周凯燕、彭炜桐
+会议名称：党支部委员会
+
+会议纪要：本次会议开展第一议题学习，讨论党员发展工作。
+- 第一议题：学习讲话《习近平：推动全民阅读、建设书香社会》</pre><pre class="full-content" style="display:none">时间：2026年4月23日
+地点：2-315
+主持人：保泽庆
+参会人员：保泽庆、翟英杰、周凯燕、彭炜桐
+会议名称：党支部委员会
+
+会议纪要：本次会议开展第一议题学习，讨论党员发展工作。
+- 第一议题：学习讲话《习近平：推动全民阅读、建设书香社会》
+- 第二议题：讨论确定党员发展对象人选</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月23日">党支部委员会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月29日</span>
+        <span class="card-title">药学院辅导员工作例会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院辅导员（鼎湖校区、新区校区）
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          实验楼2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月29日
+地点：实验楼2-315
+主持人：保泽庆书记
+参会人员：药学院辅导员（鼎湖校区、新区校区）
+会议名称：药学院辅导员工作例会
+
+会议纪要：本次会议部署心理健康教育主题班会，强调心理干预机制和工作量化。
+- 心理户外特色活动，安排班级活动</pre><pre class="full-content" style="display:none">时间：2026年4月29日
+地点：实验楼2-315
+主持人：保泽庆书记
+参会人员：药学院辅导员（鼎湖校区、新区校区）
+会议名称：药学院辅导员工作例会
+
+会议纪要：本次会议部署心理健康教育主题班会，强调心理干预机制和工作量化。
+- 心理户外特色活动，安排班级活动
+- 学工部最新修订内容，集体修订，形成建议稿
+- 遇到心理问题，请启动干预机制
+- 5月份召开生命教育、感恩教育、性教育主题班会，注重会议活动实效
+- 辅导员工作简报，工作量化，形成工作记录表，整体工作汇报量化
+- 学生去向安全打卡
+- 改善工作：谈话、家校沟通
+- 关键数据归总，24小时开机，应急摄像机制
+- 学生心理健康与生活状况调查问卷
+- 预警库（心理），开展非评判性倾听
+- 心理咨询证相关工作</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月29日">药学院辅导员工作例会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年4月29日</span>
+        <span class="card-title">药学院辅导员会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院领导、副书记、副主任、辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年4月29日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院领导、副书记、副主任、辅导员
+会议名称：药学院辅导员会议
+
+会议纪要：本次会议汇报近期工作，重点强调心理健康工作和心理干预流程。
+- 翟英杰书记作近期工作内容汇报：</pre><pre class="full-content" style="display:none">时间：2026年4月29日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院领导、副书记、副主任、辅导员
+会议名称：药学院辅导员会议
+
+会议纪要：本次会议汇报近期工作，重点强调心理健康工作和心理干预流程。
+- 翟英杰书记作近期工作内容汇报：
+- 心理趣味活动
+- 学校规则规定修订（征集意见）
+- 留校和离校统计：心理问题、身体问题、特殊情况
+- 生命安全班会
+- 各辅导员汇报上周工作情况
+- 陈政老师关于心理学生的录入情况介绍
+- 保书记作总结，提出要求：
+- 心理咨询、心理干预流程
+- 心理判断：情绪波动比较大、有自杀倾向同学，启动心理干预流程</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年4月29日">药学院辅导员会议</button>
+      </div>
+    </div><div class="month-label">五月</div>
+
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月6日</span>
+        <span class="card-title">药学院辅导员工作例会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院辅导员（鼎湖校区、新区校区）
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          实验楼2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月6日
+地点：实验楼2-315
+主持人：保泽庆书记、翟英杰副书记
+参会人员：药学院辅导员（鼎湖校区、新区校区）
+会议名称：药学院辅导员工作例会
+
+会议纪要：本次会议强调工作量化汇报，部署返校考勤和困难学生帮扶。
+- 辅导员工作周汇报，量化汇报日常工作（巡课等）</pre><pre class="full-content" style="display:none">时间：2026年5月6日
+地点：实验楼2-315
+主持人：保泽庆书记、翟英杰副书记
+参会人员：药学院辅导员（鼎湖校区、新区校区）
+会议名称：药学院辅导员工作例会
+
+会议纪要：本次会议强调工作量化汇报，部署返校考勤和困难学生帮扶。
+- 辅导员工作周汇报，量化汇报日常工作（巡课等）
+- 汇总情况需要三线表，言简意赅，汇报控制时间
+- 长假后请假核实，到校、到勤情况
+- 重点关注人群，多开展谈心谈话
+- 引导学生，培养学生思辨能力
+- 利用专业优势，带领团队继续努力，再创佳绩
+- 对待学生工作，用心、用情
+- 经济困难学生可以申请临时困难补助</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月6日">药学院辅导员工作例会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月6日</span>
+        <span class="card-title">药学院辅导员会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院书记、副书记、全体辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月6日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院书记、副书记、全体辅导员
+会议名称：药学院辅导员会议
+
+会议纪要：本次会议进行工作汇报，强调五一返校数据统计和学生管理。
+- 各兼职辅导员汇报工作内容</pre><pre class="full-content" style="display:none">时间：2026年5月6日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院书记、副书记、全体辅导员
+会议名称：药学院辅导员会议
+
+会议纪要：本次会议进行工作汇报，强调五一返校数据统计和学生管理。
+- 各兼职辅导员汇报工作内容
+- 程书记工作汇报：
+- 5月1日返校数据统计
+- 实习学生档案、综测、成绩、心理有问题等问题
+- 宿舍矛盾
+- 保书记作总结：
+- 心理工作
+- 安全工作
+- 严格请假流程</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月6日">药学院辅导员会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月13日</span>
+        <span class="card-title">药学院辅导员例会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院全体辅导员、学院正副书记
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          实验楼2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月13日
+地点：实验楼2-315
+主持人：保泽庆书记
+参会人员：药学院全体辅导员、学院正副书记
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议强调工作量化和脱稿汇报，重点部署就业、性教育和实习前准备工作。
+- 量化工作，列表指出具体进度、做法</pre><pre class="full-content" style="display:none">时间：2026年5月13日
+地点：实验楼2-315
+主持人：保泽庆书记
+参会人员：药学院全体辅导员、学院正副书记
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议强调工作量化和脱稿汇报，重点部署就业、性教育和实习前准备工作。
+- 量化工作，列表指出具体进度、做法
+- 建议汇报脱稿
+- 就业率工作，学校排名第3，全日制专科就业率偏低
+- 每日工作台帐
+- 就业工作交流，就业是重中之重
+- 心理问题处置
+- 性教育（实习前）
+- 宿舍矛盾处置
+- 请假时间、时长管理
+- 心理电影：《青春变形记》
+- 上班严格纪律
+- 团队精神
+- 实习前，班级学生情绪、就业实操指导</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月13日">药学院辅导员例会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月13日</span>
+        <span class="card-title">2026-2027年教学、实习工作专题会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          二级学院正副书记、院长、辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          行政楼411
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月13日
+地点：行政楼411
+主持人：廖生洁、邓建全、李智锋
+参会人员：二级学院正副书记、院长、辅导员
+会议名称：2026-2027年教学、实习工作专题会议
+
+会议纪要：本次会议部署实习费用和招生计划相关工作。
+- 实习费一院一策，超出学校支付费用，由学生补齐</pre><pre class="full-content" style="display:none">时间：2026年5月13日
+地点：行政楼411
+主持人：廖生洁、邓建全、李智锋
+参会人员：二级学院正副书记、院长、辅导员
+会议名称：2026-2027年教学、实习工作专题会议
+
+会议纪要：本次会议部署实习费用和招生计划相关工作。
+- 实习费一院一策，超出学校支付费用，由学生补齐
+- 住宿费直接由学生交给实习单位
+- 5月26日下班前以学院交齐
+- 黑色字体，不分男女
+- 整体没有住宿，全员没有或某个支出没有
+- 备注是补交费用，住宿费有参考（以月为单位）
+- 推荐组长
+- 认真对待，事前工作纪律
+- 2026年招生计划：6000人，2600人本科，934人高职，2326人专科，140人专升本</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月13日">2026-2027年教学、实习工作专题会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月19日</span>
+        <span class="card-title">药学院辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院书记副书记、全体辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月19日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院书记副书记、全体辅导员
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议进行工作汇报，领导提出工作意见，强调请假和实习保险。
+- 各位兼职、辅导员汇报工作</pre><pre class="full-content" style="display:none">时间：2026年5月19日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院书记副书记、全体辅导员
+会议名称：药学院辅导员工作会议
+
+会议纪要：本次会议进行工作汇报，领导提出工作意见，强调请假和实习保险。
+- 各位兼职、辅导员汇报工作
+- 李俊涛书记提出工作意见
+- 保书记提出工作意见：
+- 辅导员请假管理
+- 学生请假审批
+- 实习保险</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月19日">药学院辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月19日</span>
+        <span class="card-title">辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月19日
+地点：2-315
+主持人：贾保泽庆
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议进行工作汇报，领导讲话，强调请假流程和实习保险。
+- 汇报工作</pre><pre class="full-content" style="display:none">时间：2026年5月19日
+地点：2-315
+主持人：贾保泽庆
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议进行工作汇报，领导讲话，强调请假流程和实习保险。
+- 汇报工作
+- 李俊涛书记讲话
+- 请假流程
+- 实习保险</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月19日">辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月20日</span>
+        <span class="card-title">辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院副书记、全体专职辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          7-200
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月20日
+地点：7-200
+主持人：李俊涛
+参会人员：药学院副书记、全体专职辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议强调纪律、党建和宿舍矛盾排查。
+- 纪律：考勤工作，按部就班，如实报备</pre><pre class="full-content" style="display:none">时间：2026年5月20日
+地点：7-200
+主持人：李俊涛
+参会人员：药学院副书记、全体专职辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议强调纪律、党建和宿舍矛盾排查。
+- 纪律：考勤工作，按部就班，如实报备
+- 党建：三会一课
+- 心腹问题：宿舍矛盾，以表格形式汇总到班级，排查风险点</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月20日">辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月26日</span>
+        <span class="card-title">药学院辅导员例会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院书记、副书记、全体辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月26日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院书记、副书记、全体辅导员
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议进行工作汇报，强调外出报备和多项重点工作推进。
+- 专职辅导员汇报11-12周工作内容重点，主要事件分类，工作内容具体描述</pre><pre class="full-content" style="display:none">时间：2026年5月26日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院书记、副书记、全体辅导员
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议进行工作汇报，强调外出报备和多项重点工作推进。
+- 专职辅导员汇报11-12周工作内容重点，主要事件分类，工作内容具体描述
+- 外出学习、请假要跟领导报备：书记与副书记都要汇报
+- 李和征工作：①未交学费 ②两页官网 ③就业推进会
+- 翟书记工作：①实习点安排工作 ②档案整理 ③谈心谈话
+- 重点工作：就业、参军、党建、心理问题</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月26日">药学院辅导员例会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年5月26日</span>
+        <span class="card-title">辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年5月26日
+地点：2-315
+主持人：保泽庆
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议强调工作汇报规范和学生管理多项重点工作。
+- 辅导员工作汇报（时间、次数标红、简洁、不要忘记PPT），展开一点点</pre><pre class="full-content" style="display:none">时间：2026年5月26日
+地点：2-315
+主持人：保泽庆
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议强调工作汇报规范和学生管理多项重点工作。
+- 辅导员工作汇报（时间、次数标红、简洁、不要忘记PPT），展开一点点
+- 学生住院、紧急发病告知副书记
+- 定位打卡（学生去向），家校沟通、谈心谈话记录、班干部会议、宿舍长会议、违纪学生管理
+- 外出报备申请表，外出需和副书记、书记汇报
+- 党建工作网站更新，6月党日活动
+- 交流谈心谈话（一轮、全班）：实习、就业、人际、学业压力、生活问题
+- 困难生就业
+- 考试月、考风考纪班会
+- 就业、征兵、心理问题、党建工作
+- 日常管理由副书记负责
+- 风险点详细排查
+- 就业帮扶汇报学生情况（未就业、目前情况）</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年5月26日">辅导员工作会议</button>
+      </div>
+    </div><div class="month-label">六月</div>
+
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年6月2日</span>
+        <span class="card-title">药学院辅导员例会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          全体药学院学工队伍
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年6月2日
+地点：2-315
+主持人：保泽庆、李俊涛
+参会人员：全体药学院学工队伍
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议部署日常管理、就业、党建和实习前教育等多项工作。
+- 学生日常管理工作，辅导员周汇报</pre><pre class="full-content" style="display:none">时间：2026年6月2日
+地点：2-315
+主持人：保泽庆、李俊涛
+参会人员：全体药学院学工队伍
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议部署日常管理、就业、党建和实习前教育等多项工作。
+- 学生日常管理工作，辅导员周汇报
+- 临时困难补助申请
+- 上课抬头率提升
+- 多听课、多巡课
+- 校园政治安全周（6月1日-6月7日）
+- 就业率重中之重，高质量就业
+- 省社科联申报
+- 亲子党建活动
+- 实习前教育
+- 档案整理</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年6月2日">药学院辅导员例会</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年6月2日</span>
+        <span class="card-title">辅导员工作会议</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          辅导员
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年6月2日
+地点：2-315
+主持人：李俊涛
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议部署毕业生工作、政治安全和安全管理。
+- 辅导员工作汇报</pre><pre class="full-content" style="display:none">时间：2026年6月2日
+地点：2-315
+主持人：李俊涛
+参会人员：辅导员
+会议名称：辅导员工作会议
+
+会议纪要：本次会议部署毕业生工作、政治安全和安全管理。
+- 辅导员工作汇报
+- 毕业生档案填报
+- 校园政治安全工作会议，关注网络舆情
+- 应征入伍工作（毕业班）
+- 加强安全管理、排查
+- 大功率电器排查，较差宿舍整改
+- 19周、党建活动，401人
+- 实习生的思想动态</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年6月2日">辅导员工作会议</button>
+      </div>
+    </div>
+    <div class="meeting-card">
+      <div class="card-header">
+        <span class="card-date">2026年6月2日</span>
+        <span class="card-title">药学院辅导员例会</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          药学院全体辅导员、书记、副书记
+        </span>
+        <span class="card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          2-315
+        </span>
+      </div>
+      <div class="card-body">
+        <pre class="collapsed">时间：2026年6月2日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院全体辅导员、书记、副书记
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议进行工作汇报，部署毕业生、征兵、安全等工作。
+- 兼职辅导员汇报工作情况</pre><pre class="full-content" style="display:none">时间：2026年6月2日
+地点：2-315
+主持人：保泽庆
+参会人员：药学院全体辅导员、书记、副书记
+会议名称：药学院辅导员例会
+
+会议纪要：本次会议进行工作汇报，部署毕业生、征兵、安全等工作。
+- 兼职辅导员汇报工作情况
+- 李书记安排相关毕业生、应征入伍、学生安全问题
+- 翟书记通报相关事项：①大功率电器 ②卫生较差宿舍
+- 修书记做工作总结</pre><button class="expand-btn" onclick="this.previousElementSibling.previousElementSibling.style.display=this.previousElementSibling.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.previousElementSibling.style.display=this.previousElementSibling.style.display===&quot;none&quot;?&quot;block&quot;:&quot;none&quot;;this.textContent=this.textContent===&quot;展开全文 ▾&quot;?&quot;收起 ▲&quot;:&quot;展开全文 ▾&quot;">展开全文 ▾</button>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-meeting="2026年6月2日">药学院辅导员例会</button>
+      </div>
+    </div>
+</div>
 
 <div class="footer">
   <div class="footer-inner">
     <span class="footer-info">共 30 场会议记录</span>
-    <button class="btn btn-export" onclick="exportPDF()">
+    <button class="btn btn-export" onclick="window.print()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       一键导出 PDF
     </button>
@@ -634,155 +1765,36 @@ body {
 <div class="toast" id="toast"></div>
 
 <script>
-const MEETINGS = [
-  {"date":"2026年3月5日","title":"辅导员工作会议","attendees":"辅导员","location":"2-315","content":"时间：2026年3月5日\n地点：2-315\n主持人：保泽庆、翟英杰\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议主要部署辅导员各项日常工作，涵盖思政育人、安全管理、心理健康、反诈宣传等多个方面。\n- 思政育人工作：组织开展鲜明特色的主题班会，创新开展形式\n- 安全管理工作：跟进返校学生人数，多加关注家中突发变故学生\n- 更新心理云平台，跟进预警学生心理动态\n- 开展反诈宣传教育\n- 加强电动车管理\n- 推进心理辅导站建设\n- 落实晚自习管理\n- 做好奖助贷工作\n- 申报辅导员工作室建设项目，筹备工作论坛"},
-  {"date":"2026年3月16日","title":"辅导员工作会议","attendees":"辅导员","location":"2-315","content":"时间：2026年3月16日\n地点：2-315\n主持人：保泽庆、翟英杰\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议部署近期重点工作，包括反诈禁毒教育、招聘会动员、学生事务办理等。\n- 3月9日反诈主题工作会议，开展禁毒、性教育\n- 做好招聘会动员工作\n- 周三实习生宣讲会，19:00学术报告厅\n- 活动排班安排\n- 休学、退学、走读程序办理\n- 落实学生转专业相关事务性工作\n- 做好传染性疾病上报工作\n- 开展学院文明宿舍评选\n- 心理辅导站勤工俭学岗位面试"},
-  {"date":"2026年3月23日","title":"药学院辅导员工作会议","attendees":"全体药学院辅导员","location":"2-315（新区）","content":"时间：2026年3月23日\n地点：2-315（新区）\n主持人：保泽庆、翟英杰\n参会人员：全体药学院辅导员\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议重点强调班风学风建设、安全管理和招聘会筹备工作。\n- 抓紧班风建设：课室卫生、学生仪容仪表、文明礼貌\n- 严抓大功率电器违禁使用，开展文明宿舍评比工作\n- 工作下沉，摸排学生情况\n- 加强课堂考勤，特别是周一上午和周五下午考勤\n- 3月29日（星期天）校园招聘会，150+用人单位\n- 做好心理工作总结"},
-  {"date":"2026年3月26日","title":"药学院党总支2025年度组织生活会和民主评议","attendees":"药学院全体教师党员","location":"实验楼2-315","content":"时间：2026年3月26日\n地点：实验楼2-315\n主持人：翟英杰书记\n参会人员：药学院全体教师党员\n会议名称：药学院党总支2025年度组织生活会和民主评议\n\n会议纪要：本次党员会议开展年度工作总结、批评与自我批评，并部署党建工作。\n- 保泽庆同志作2025年度工作总结\n- 开展批评与自我批评\n- 加强沟通，畅通各部门工作流程\n- 建立接待日，加强学生与学院沟通\n- 构建「党建+」主题党日，打造有特色的高质量党建\n- 勇于担当，敢于作为"},
-  {"date":"2026年3月31日","title":"药学院辅导员工作会议","attendees":"全体辅导员","location":"实验楼2-315","content":"时间：2026年3月31日\n地点：实验楼2-315\n主持人：保泽庆、翟英杰书记\n参会人员：全体辅导员\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议重点强调学生问题处置、团队建设和工作作风，部署反诈、实习等工作。\n- 做好学生退费工作\n- 学生身体问题紧急处置流程\n- 妥善处理学生投诉事件和学生殴打、辱骂老师等问题\n- 学生安排实习点，注意特殊人群\n- 防范学生失联问题\n- 建立周末外出台帐\n- 学生反诈工作（刷单返利案例居多），每个月开展反诈班会\n- 学生问题处置汇报需详细，做好后续跟进\n- 工作作风：忠诚、干净、担当，随时沟通\n- 团队协作，队伍建设，互相帮助、互相监督\n- 精益求精，树立规范意识、公平意识\n- 风清气正，做好职称评审相关帮助工作"},
-  {"date":"2026年4月1日","title":"2026年征兵工作动员部署会","attendees":"二级学院党总支书记、副书记、辅导员","location":"初心堂","content":"时间：2026年4月1日\n地点：初心堂\n主持人：廖明生\n参会人员：二级学院党总支书记、副书记、辅导员\n会议名称：2026年征兵工作动员部署会\n\n会议纪要：本次会议进行征兵工作经验分享和表彰。\n- 邓婉莹老师汇报征兵工作经验\n- 优秀组织奖颁奖仪式"},
-  {"date":"2026年4月1日","title":"守正创新 赋能成长——2026年辅导员工作论坛","attendees":"辅导员","location":"行政楼初心堂","content":"时间：2026年4月1日\n地点：行政楼初心堂\n主持人：学生工作部\n参会人员：辅导员\n会议名称：守正创新 赋能成长——2026年辅导员工作论坛\n\n会议纪要：本次辅导员工作论坛分享工作心得，探讨学生工作方法与案例提炼。\n- 学生工作没有捷径，全靠真心、专心、责任心\n- 真心对待学生，与学生相处共情，一句关心、一次倾听、一回坚守，可能就改变一个学生的状态\n- 继续把小事做细，把细事做透\n- 向学生展现出善意，学生会给予辅导员正向反馈\n- 论坛感想：工作经验积累→提炼案例→上升理论，形成可推广、可复制的学生工作案例\n- 定期、不定期开展二级学院辅导员论坛\n- 「三支一扶」相关工作"},
-  {"date":"2026年4月1日","title":"辅导员工作论坛","attendees":"辅导员","location":"初心堂","content":"时间：2026年4月1日\n地点：初心堂\n主持人：（未注明）\n参会人员：辅导员\n会议名称：辅导员工作论坛\n\n会议纪要：本次论坛围绕辅导员工作的多个主题进行经验分享与交流。\n- 「从受助」到助人：发展型资助视域下高投入的场景\n- 护航成长：高校就业指导工作体系构建与实践\n- 专业适配错位学生帮扶模式的探索与实践\n- 从预警到守护：教育者视角下的校园心理危机识别与应对实录\n- 数字化赋能高校班级日常管理与精准就业服务\n- 「从精准防」到深度愈：辅导员电信网络诈骗防治\n- 以新以柔性管理与人文关怀化解学生宿舍矛盾\n- 实践育人助振兴 产业赋能润思政\n- 以赛优学"},
-  {"date":"2026年4月2日","title":"2023届毕业生就业工作推进会","attendees":"保泽庆、翟英杰、药学院全体教职工","location":"2-315","content":"时间：2026年4月2日\n地点：2-315\n主持人：汪海涛\n参会人员：保泽庆、翟英杰、药学院全体教职工\n会议名称：2023届毕业生就业工作推进会\n\n会议纪要：本次会议分析就业现状，部署全员就业推进工作，建立帮扶机制。\n- 就业率情况说明：药学院就业率36.34%，学校平均39%\n- 分析我校往年就业现状及毕业生面临的挑战\n- 慢就业、观望态度，学生就业求职意愿不强烈\n- 专升本人数122人（2025年）\n- 底数不清：求职意愿、区域、意向工作、反馈不清\n- 学生就业定位不清楚——专科生进医院定位问题\n- 就业指导精准度不足，需开展问卷调查\n- 就业信息渠道待拓宽\n- 心理疏导机制不完善\n- 全员参与就业动员，建立「一对多」结对机制和「一生一策」精准帮扶\n- 建立学院帮扶机制、结对帮扶机制、动态跟踪反馈机制"},
-  {"date":"2026年4月3日","title":"心理排查工作会议","attendees":"心理咨询中心李敏主任、学工部部长李小兰、新区辅导员","location":"7-110","content":"时间：2026年4月3日\n地点：7-110\n主持人：保泽庆\n参会人员：心理咨询中心李敏主任、学工部部长李小兰、新区辅导员\n会议名称：心理排查工作会议\n\n会议纪要：本次会议汇报学院心理问题学生情况，学习心理识别与谈心谈话技巧。\n- 学院心理问题学生情况汇报\n- 心理云平台、心理日报表使用\n- 谈心谈话技巧培训\n- 学习如何识别心理问题"},
-  {"date":"2026年4月10日","title":"征兵入伍工作专题培训","attendees":"二级学院党总支副书记、全体辅导员","location":"行政楼413、综合楼411","content":"时间：2026年4月10日\n地点：行政楼413、综合楼411\n主持人：廖明生\n参会人员：二级学院党总支副书记、全体辅导员\n会议名称：征兵入伍工作专题培训\n\n会议纪要：本次培训详细讲解征兵入伍的全流程、政策要求和注意事项。\n- 孙德满老师征兵工作指导，学习最新指南\n- 网上报名、初检初核、体检政考流程\n- 学校所在地、户籍所在地应征选择：广东→肇庆→端州→肇庆医学院\n- 务必扫码进群：1月初、6月初\n- 新增心理测试（只有一次机会，没有复检机会），若不合格直接淘汰\n- 在校表现评分（指南有模板）\n- 体能测试（新增），加分项目（县级以上获奖，系统自动加分），减分项目（体检有瑕疵，系统自动减分）\n- 大学生（10分），高中毕业生（8分）\n- 粤东、粤西人口大县竞争十分激烈，在校入伍相对机会更大\n- 近视手术8000元补贴\n- 女生：综合分=文化（40%）+思想（30%）+身体（30%），不合格直接淘汰\n- 熟悉三笔帐\n- 在校全程，分阶段推进\n- 体能测试：男1000米，女800米，立定跳远，引体向上"},
-  {"date":"2026年4月13日","title":"药学院辅导员工作会议","attendees":"药学院辅导员（新区校区、鼎湖校区）","location":"7-109、实验楼2-513","content":"时间：2026年4月13日\n地点：7-109、实验楼2-513\n主持人：翟英杰、保泽庆书记\n参会人员：药学院辅导员（新区校区、鼎湖校区）\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议强调危机意识和工作纪律，部署心理平台完善、学生管理等工作。\n- 完善心理云平台资料，扎实资料\n- 加强课堂考勤，学生课间去向、晚习情况，迟到早退\n- 学校学生使用无人机情况登记备案\n- 在校学生辅导员本周24小时在岗（学工要求）\n- 8个专任、13个兼职辅导员（教学院）\n- 反思工作，查漏补缺，提高危机意识\n- 加强反诈教育，开展班会性教育、财产教育\n- 注意网络舆情，做好学生引导\n- 有规矩意识、纪律意识，忠诚、干净、担当\n- 周末学生去向管理，做好报备\n- 引导学生多参与学生活动、科研活动\n- 复读、健休学相关工作\n- 24小时7天全程在岗\n- 学费拖欠的，了解情况\n- 未满18周岁学生统计\n- 外出学生需家长知情\n- 走读材料补充、更新，休学材料办理\n- 无课时间把控\n- 周末外出登记表管理\n- 共同处理紧急情况"},
-  {"date":"2026年4月16日","title":"党支部党员大会","attendees":"党支部教师党员","location":"2-315","content":"时间：2026年4月16日\n地点：2-315\n主持人：保泽庆、翟英杰\n参会人员：党支部教师党员\n会议名称：党支部党员大会\n\n会议纪要：本次会议开展第一议题学习，强调育人初心。\n- 第一议题：学习习近平总书记重要文章《树立和践行正确政绩观》\n- 坚守育人初心，以生为本、思想引领"},
-  {"date":"2026年4月21日","title":"学校领导调研药学院学工工作","attendees":"新区辅导员、学院领导、学校领导","location":"7-200","content":"时间：2026年4月21日\n地点：7-200\n主持人：鄂云容书记\n参会人员：新区辅导员、学院领导、学校领导\n会议名称：学校领导调研药学院学工工作\n\n会议纪要：本次调研会议听取学工工作汇报，就辅导员队伍建设和工作方法提出指导意见。\n- 8名专任、13名兼职辅导员队伍情况\n- 建议兼职辅导员转为班主任，以专职辅导员为主\n- 每半月汇报辅导员日常工作，加强工作联动性\n- 考研专题讲座（周三）、读书节——南方医优秀辅导员讲座、心理讲座、药学院性教育（周四）\n- 工作留痕是需要的，但是不能过度，应注重实效\n- 合理、科学的培训会、案例分享会有利于辅导员提高育人实效\n- 提倡案例式教学，调整师生沟通方式，让情绪、内容入心入脑\n- 提高学生思辨性\n- 突发性学生事件对辅导员工作的启发\n- 开展草坪班会、操场班会\n- 偶发事件应对"},
-  {"date":"2026年4月21日","title":"辅导员工作会议（周例会）","attendees":"药学院全体专兼任辅导员","location":"2-510","content":"时间：2026年4月21日\n地点：2-510\n主持人：保泽庆书记\n参会人员：药学院全体专兼任辅导员\n会议名称：辅导员工作会议（周例会）\n\n会议纪要：本次会议部署考研讲座、学生请假制度和就业等工作。\n- 专升本、考研讲座，朋辈力量引领学业规划，提高学生参与度\n- 学生请假制度：跨过周六、周日需计算在内\n- 工作留痕，做好记录\n- 欠费追缴，柔性催促\n- 形成学院案例集\n- 学校正在进行基层副职竞聘\n- 每周辅导员工作汇报（专、兼任辅导员轮流）\n- 就业工作推进"},
-  {"date":"2026年4月23日","title":"党支部委员会","attendees":"保泽庆、翟英杰、周凯燕、彭炜桐","location":"2-315","content":"时间：2026年4月23日\n地点：2-315\n主持人：保泽庆\n参会人员：保泽庆、翟英杰、周凯燕、彭炜桐\n会议名称：党支部委员会\n\n会议纪要：本次会议开展第一议题学习，讨论党员发展工作。\n- 第一议题：学习讲话《习近平：推动全民阅读、建设书香社会》\n- 第二议题：讨论确定党员发展对象人选"},
-  {"date":"2026年4月29日","title":"药学院辅导员工作例会","attendees":"药学院辅导员（鼎湖校区、新区校区）","location":"实验楼2-315","content":"时间：2026年4月29日\n地点：实验楼2-315\n主持人：保泽庆书记\n参会人员：药学院辅导员（鼎湖校区、新区校区）\n会议名称：药学院辅导员工作例会\n\n会议纪要：本次会议部署心理健康教育主题班会，强调心理干预机制和工作量化。\n- 心理户外特色活动，安排班级活动\n- 学工部最新修订内容，集体修订，形成建议稿\n- 遇到心理问题，请启动干预机制\n- 5月份召开生命教育、感恩教育、性教育主题班会，注重会议活动实效\n- 辅导员工作简报，工作量化，形成工作记录表，整体工作汇报量化\n- 学生去向安全打卡\n- 改善工作：谈话、家校沟通\n- 关键数据归总，24小时开机，应急摄像机制\n- 学生心理健康与生活状况调查问卷\n- 预警库（心理），开展非评判性倾听\n- 心理咨询证相关工作"},
-  {"date":"2026年4月29日","title":"药学院辅导员会议","attendees":"药学院领导、副书记、副主任、辅导员","location":"2-315","content":"时间：2026年4月29日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院领导、副书记、副主任、辅导员\n会议名称：药学院辅导员会议\n\n会议纪要：本次会议汇报近期工作，重点强调心理健康工作和心理干预流程。\n- 翟英杰书记作近期工作内容汇报：\n- 心理趣味活动\n- 学校规则规定修订（征集意见）\n- 留校和离校统计：心理问题、身体问题、特殊情况\n- 生命安全班会\n- 各辅导员汇报上周工作情况\n- 陈政老师关于心理学生的录入情况介绍\n- 保书记作总结，提出要求：\n- 心理咨询、心理干预流程\n- 心理判断：情绪波动比较大、有自杀倾向同学，启动心理干预流程"},
-  {"date":"2026年5月6日","title":"药学院辅导员工作例会","attendees":"药学院辅导员（鼎湖校区、新区校区）","location":"实验楼2-315","content":"时间：2026年5月6日\n地点：实验楼2-315\n主持人：保泽庆书记、翟英杰副书记\n参会人员：药学院辅导员（鼎湖校区、新区校区）\n会议名称：药学院辅导员工作例会\n\n会议纪要：本次会议强调工作量化汇报，部署返校考勤和困难学生帮扶。\n- 辅导员工作周汇报，量化汇报日常工作（巡课等）\n- 汇总情况需要三线表，言简意赅，汇报控制时间\n- 长假后请假核实，到校、到勤情况\n- 重点关注人群，多开展谈心谈话\n- 引导学生，培养学生思辨能力\n- 利用专业优势，带领团队继续努力，再创佳绩\n- 对待学生工作，用心、用情\n- 经济困难学生可以申请临时困难补助"},
-  {"date":"2026年5月6日","title":"药学院辅导员会议","attendees":"药学院书记、副书记、全体辅导员","location":"2-315","content":"时间：2026年5月6日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院书记、副书记、全体辅导员\n会议名称：药学院辅导员会议\n\n会议纪要：本次会议进行工作汇报，强调五一返校数据统计和学生管理。\n- 各兼职辅导员汇报工作内容\n- 程书记工作汇报：\n- 5月1日返校数据统计\n- 实习学生档案、综测、成绩、心理有问题等问题\n- 宿舍矛盾\n- 保书记作总结：\n- 心理工作\n- 安全工作\n- 严格请假流程"},
-  {"date":"2026年5月13日","title":"药学院辅导员例会","attendees":"药学院全体辅导员、学院正副书记","location":"实验楼2-315","content":"时间：2026年5月13日\n地点：实验楼2-315\n主持人：保泽庆书记\n参会人员：药学院全体辅导员、学院正副书记\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议强调工作量化和脱稿汇报，重点部署就业、性教育和实习前准备工作。\n- 量化工作，列表指出具体进度、做法\n- 建议汇报脱稿\n- 就业率工作，学校排名第3，全日制专科就业率偏低\n- 每日工作台帐\n- 就业工作交流，就业是重中之重\n- 心理问题处置\n- 性教育（实习前）\n- 宿舍矛盾处置\n- 请假时间、时长管理\n- 心理电影：《青春变形记》\n- 上班严格纪律\n- 团队精神\n- 实习前，班级学生情绪、就业实操指导"},
-  {"date":"2026年5月13日","title":"2026-2027年教学、实习工作专题会议","attendees":"二级学院正副书记、院长、辅导员","location":"行政楼411","content":"时间：2026年5月13日\n地点：行政楼411\n主持人：廖生洁、邓建全、李智锋\n参会人员：二级学院正副书记、院长、辅导员\n会议名称：2026-2027年教学、实习工作专题会议\n\n会议纪要：本次会议部署实习费用和招生计划相关工作。\n- 实习费一院一策，超出学校支付费用，由学生补齐\n- 住宿费直接由学生交给实习单位\n- 5月26日下班前以学院交齐\n- 黑色字体，不分男女\n- 整体没有住宿，全员没有或某个支出没有\n- 备注是补交费用，住宿费有参考（以月为单位）\n- 推荐组长\n- 认真对待，事前工作纪律\n- 2026年招生计划：6000人，2600人本科，934人高职，2326人专科，140人专升本"},
-  {"date":"2026年5月19日","title":"药学院辅导员工作会议","attendees":"药学院书记副书记、全体辅导员","location":"2-315","content":"时间：2026年5月19日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院书记副书记、全体辅导员\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议进行工作汇报，领导提出工作意见，强调请假和实习保险。\n- 各位兼职、辅导员汇报工作\n- 李俊涛书记提出工作意见\n- 保书记提出工作意见：\n- 辅导员请假管理\n- 学生请假审批\n- 实习保险"},
-  {"date":"2026年5月19日","title":"辅导员工作会议","attendees":"辅导员","location":"2-315","content":"时间：2026年5月19日\n地点：2-315\n主持人：贾保泽庆\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议进行工作汇报，领导讲话，强调请假流程和实习保险。\n- 汇报工作\n- 李俊涛书记讲话\n- 请假流程\n- 实习保险"},
-  {"date":"2026年5月20日","title":"辅导员工作会议","attendees":"药学院副书记、全体专职辅导员","location":"7-200","content":"时间：2026年5月20日\n地点：7-200\n主持人：李俊涛\n参会人员：药学院副书记、全体专职辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议强调纪律、党建和宿舍矛盾排查。\n- 纪律：考勤工作，按部就班，如实报备\n- 党建：三会一课\n- 心腹问题：宿舍矛盾，以表格形式汇总到班级，排查风险点"},
-  {"date":"2026年5月26日","title":"药学院辅导员例会","attendees":"药学院书记、副书记、全体辅导员","location":"2-315","content":"时间：2026年5月26日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院书记、副书记、全体辅导员\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议进行工作汇报，强调外出报备和多项重点工作推进。\n- 专职辅导员汇报11-12周工作内容重点，主要事件分类，工作内容具体描述\n- 外出学习、请假要跟领导报备：书记与副书记都要汇报\n- 李和征工作：①未交学费 ②两页官网 ③就业推进会\n- 翟书记工作：①实习点安排工作 ②档案整理 ③谈心谈话\n- 重点工作：就业、参军、党建、心理问题"},
-  {"date":"2026年5月26日","title":"辅导员工作会议","attendees":"辅导员","location":"2-315","content":"时间：2026年5月26日\n地点：2-315\n主持人：保泽庆\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议强调工作汇报规范和学生管理多项重点工作。\n- 辅导员工作汇报（时间、次数标红、简洁、不要忘记PPT），展开一点点\n- 学生住院、紧急发病告知副书记\n- 定位打卡（学生去向），家校沟通、谈心谈话记录、班干部会议、宿舍长会议、违纪学生管理\n- 外出报备申请表，外出需和副书记、书记汇报\n- 党建工作网站更新，6月党日活动\n- 交流谈心谈话（一轮、全班）：实习、就业、人际、学业压力、生活问题\n- 困难生就业\n- 考试月、考风考纪班会\n- 就业、征兵、心理问题、党建工作\n- 日常管理由副书记负责\n- 风险点详细排查\n- 就业帮扶汇报学生情况（未就业、目前情况）"},
-  {"date":"2026年6月2日","title":"药学院辅导员例会","attendees":"全体药学院学工队伍","location":"2-315","content":"时间：2026年6月2日\n地点：2-315\n主持人：保泽庆、李俊涛\n参会人员：全体药学院学工队伍\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议部署日常管理、就业、党建和实习前教育等多项工作。\n- 学生日常管理工作，辅导员周汇报\n- 临时困难补助申请\n- 上课抬头率提升\n- 多听课、多巡课\n- 校园政治安全周（6月1日-6月7日）\n- 就业率重中之重，高质量就业\n- 省社科联申报\n- 亲子党建活动\n- 实习前教育\n- 档案整理"},
-  {"date":"2026年6月2日","title":"辅导员工作会议","attendees":"辅导员","location":"2-315","content":"时间：2026年6月2日\n地点：2-315\n主持人：李俊涛\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议部署毕业生工作、政治安全和安全管理。\n- 辅导员工作汇报\n- 毕业生档案填报\n- 校园政治安全工作会议，关注网络舆情\n- 应征入伍工作（毕业班）\n- 加强安全管理、排查\n- 大功率电器排查，较差宿舍整改\n- 19周、党建活动，401人\n- 实习生的思想动态"},
-  {"date":"2026年6月2日","title":"药学院辅导员例会","attendees":"药学院全体辅导员、书记、副书记","location":"2-315","content":"时间：2026年6月2日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院全体辅导员、书记、副书记\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议进行工作汇报，部署毕业生、征兵、安全等工作。\n- 兼职辅导员汇报工作情况\n- 李书记安排相关毕业生、应征入伍、学生安全问题\n- 翟书记通报相关事项：①大功率电器 ②卫生较差宿舍\n- 修书记做工作总结"}
-];
-
-function getMonthKey(dateStr) {
-  const m = dateStr.match(/(\d+)月/);
-  return m ? parseInt(m[1]) : 0;
-}
-
-function getMonthName(m) {
-  const map = {3:'三月',4:'四月',5:'五月',6:'六月'};
-  return map[m] || '';
-}
-
-function renderMeetings() {
-  const timeline = document.getElementById('timeline');
-  let currentMonth = 0;
-  let html = '';
-
-  MEETINGS.forEach((m, idx) => {
-    const mk = getMonthKey(m.date);
-    if (mk !== currentMonth) {
-      currentMonth = mk;
-      html += `<div class="month-label">${getMonthName(mk)}</div>`;
-    }
-
-    html += `
-    <div class="meeting-card" id="card-${idx}">
-      <div class="card-header">
-        <span class="card-date">${m.date}</span>
-        <span class="card-title">${escapeHTML(m.title)}</span>
-      </div>
-      <div class="card-meta">
-        <span class="card-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          ${escapeHTML(m.attendees)}
-        </span>
-        <span class="card-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          ${escapeHTML(m.location)}
-        </span>
-      </div>
-      <div class="card-body">
-        <pre id="body-${idx}">${escapeHTML(m.content)}</pre>
-        <button class="expand-btn" id="expand-${idx}" onclick="toggleExpand(${idx})">展开全文 ▾</button>
-      </div>
-      <div class="card-actions">
-        <button class="btn btn-copy" id="copybtn-${idx}" onclick="copyMeeting(${idx})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          一键复制
-        </button>
-      </div>
-    </div>`;
-  });
-
-  timeline.innerHTML = html;
-
-  // Auto-collapse long content
-  MEETINGS.forEach((m, idx) => {
-    const pre = document.getElementById('body-' + idx);
-    if (pre && pre.scrollHeight <= pre.clientHeight + 4) {
-      const btn = document.getElementById('expand-' + idx);
-      if (btn) btn.style.display = 'none';
-      pre.classList.add('expanded');
-    }
-  });
-}
-
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
-function toggleExpand(idx) {
-  const pre = document.getElementById('body-' + idx);
-  const btn = document.getElementById('expand-' + idx);
-  if (!pre || !btn) return;
-  const isExpanded = pre.classList.contains('expanded');
-  if (isExpanded) {
-    pre.classList.remove('expanded');
-    btn.textContent = '展开全文 ▾';
-  } else {
-    pre.classList.add('expanded');
-    btn.textContent = '收起 ▲';
-  }
-}
-
-function copyMeeting(idx) {
-  const m = MEETINGS[idx];
-  const text = `【${m.date}】${m.title}\n地点：${m.location}\n参会人员：${m.attendees}\n\n${m.content}`;
-
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('copybtn-' + idx);
-    btn.classList.add('copied');
-    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 已复制`;
-    showToast('会议内容已复制到剪贴板');
-    setTimeout(() => {
-      btn.classList.remove('copied');
-      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> 一键复制`;
-    }, 1800);
-  }).catch(() => {
-    showToast('复制失败，请重试');
-  });
-}
+var meetingData = [{"date": "2026年3月5日", "title": "辅导员工作会议", "attendees": "辅导员", "location": "2-315", "content": "时间：2026年3月5日\n地点：2-315\n主持人：保泽庆、翟英杰\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议主要部署辅导员各项日常工作，涵盖思政育人、安全管理、心理健康、反诈宣传等多个方面。\n- 思政育人工作：组织开展鲜明特色的主题班会，创新开展形式\n- 安全管理工作：跟进返校学生人数，多加关注家中突发变故学生\n- 更新心理云平台，跟进预警学生心理动态\n- 开展反诈宣传教育\n- 加强电动车管理\n- 推进心理辅导站建设\n- 落实晚自习管理\n- 做好奖助贷工作\n- 申报辅导员工作室建设项目，筹备工作论坛"}, {"date": "2026年3月16日", "title": "辅导员工作会议", "attendees": "辅导员", "location": "2-315", "content": "时间：2026年3月16日\n地点：2-315\n主持人：保泽庆、翟英杰\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议部署近期重点工作，包括反诈禁毒教育、招聘会动员、学生事务办理等。\n- 3月9日反诈主题工作会议，开展禁毒、性教育\n- 做好招聘会动员工作\n- 周三实习生宣讲会，19:00学术报告厅\n- 活动排班安排\n- 休学、退学、走读程序办理\n- 落实学生转专业相关事务性工作\n- 做好传染性疾病上报工作\n- 开展学院文明宿舍评选\n- 心理辅导站勤工俭学岗位面试"}, {"date": "2026年3月23日", "title": "药学院辅导员工作会议", "attendees": "全体药学院辅导员", "location": "2-315（新区）", "content": "时间：2026年3月23日\n地点：2-315（新区）\n主持人：保泽庆、翟英杰\n参会人员：全体药学院辅导员\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议重点强调班风学风建设、安全管理和招聘会筹备工作。\n- 抓紧班风建设：课室卫生、学生仪容仪表、文明礼貌\n- 严抓大功率电器违禁使用，开展文明宿舍评比工作\n- 工作下沉，摸排学生情况\n- 加强课堂考勤，特别是周一上午和周五下午考勤\n- 3月29日（星期天）校园招聘会，150+用人单位\n- 做好心理工作总结"}, {"date": "2026年3月26日", "title": "药学院党总支2025年度组织生活会和民主评议", "attendees": "药学院全体教师党员", "location": "实验楼2-315", "content": "时间：2026年3月26日\n地点：实验楼2-315\n主持人：翟英杰书记\n参会人员：药学院全体教师党员\n会议名称：药学院党总支2025年度组织生活会和民主评议\n\n会议纪要：本次党员会议开展年度工作总结、批评与自我批评，并部署党建工作。\n- 保泽庆同志作2025年度工作总结\n- 开展批评与自我批评\n- 加强沟通，畅通各部门工作流程\n- 建立接待日，加强学生与学院沟通\n- 构建“党建+”主题党日，打造有特色的高质量党建\n- 勇于担当，敢于作为"}, {"date": "2026年3月31日", "title": "药学院辅导员工作会议", "attendees": "全体辅导员", "location": "实验楼2-315", "content": "时间：2026年3月31日\n地点：实验楼2-315\n主持人：保泽庆、翟英杰书记\n参会人员：全体辅导员\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议重点强调学生问题处置、团队建设和工作作风，部署反诈、实习等工作。\n- 做好学生退费工作\n- 学生身体问题紧急处置流程\n- 妥善处理学生投诉事件和学生殴打、辱骂老师等问题\n- 学生安排实习点，注意特殊人群\n- 防范学生失联问题\n- 建立周末外出台帐\n- 学生反诈工作（刷单返利案例居多），每个月开展反诈班会\n- 学生问题处置汇报需详细，做好后续跟进\n- 工作作风：忠诚、干净、担当，随时沟通\n- 团队协作，队伍建设，互相帮助、互相监督\n- 精益求精，树立规范意识、公平意识\n- 风清气正，做好职称评审相关帮助工作"}, {"date": "2026年4月1日", "title": "2026年征兵工作动员部署会", "attendees": "二级学院党总支书记、副书记、辅导员", "location": "初心堂", "content": "时间：2026年4月1日\n地点：初心堂\n主持人：廖明生\n参会人员：二级学院党总支书记、副书记、辅导员\n会议名称：2026年征兵工作动员部署会\n\n会议纪要：本次会议进行征兵工作经验分享和表彰。\n- 邓婉莹老师汇报征兵工作经验\n- 优秀组织奖颁奖仪式"}, {"date": "2026年4月1日", "title": "守正创新 赋能成长——2026年辅导员工作论坛", "attendees": "辅导员", "location": "行政楼初心堂", "content": "时间：2026年4月1日\n地点：行政楼初心堂\n主持人：学生工作部\n参会人员：辅导员\n会议名称：守正创新 赋能成长——2026年辅导员工作论坛\n\n会议纪要：本次辅导员工作论坛分享工作心得，探讨学生工作方法与案例提炼。\n- 学生工作没有捷径，全靠真心、专心、责任心\n- 真心对待学生，与学生相处共情，一句关心、一次倾听、一回坚守，可能就改变一个学生的状态\n- 继续把小事做细，把细事做透\n- 向学生展现出善意，学生会给予辅导员正向反馈\n- 论坛感想：工作经验积累→提炼案例→上升理论，形成可推广、可复制的学生工作案例\n- 定期、不定期开展二级学院辅导员论坛\n- “三支一扶”相关工作"}, {"date": "2026年4月1日", "title": "辅导员工作论坛", "attendees": "辅导员", "location": "初心堂", "content": "时间：2026年4月1日\n地点：初心堂\n主持人：（未注明）\n参会人员：辅导员\n会议名称：辅导员工作论坛\n\n会议纪要：本次论坛围绕辅导员工作的多个主题进行经验分享与交流。\n- “从受助”到助人：发展型资助视域下高投入的场景\n- 护航成长：高校就业指导工作体系构建与实践\n- 专业适配错位学生帮扶模式的探索与实践\n- 从预警到守护：教育者视角下的校园心理危机识别与应对实录\n- 数字化赋能高校班级日常管理与精准就业服务\n- “从精准防”到深度愈：辅导员电信网络诈骗防治\n- 以新以柔性管理与人文关怀化解学生宿舍矛盾\n- 实践育人助振兴 产业赋能润思政\n- 以赛优学"}, {"date": "2026年4月2日", "title": "2023届毕业生就业工作推进会", "attendees": "保泽庆、翟英杰、药学院全体教职工", "location": "2-315", "content": "时间：2026年4月2日\n地点：2-315\n主持人：汪海涛\n参会人员：保泽庆、翟英杰、药学院全体教职工\n会议名称：2023届毕业生就业工作推进会\n\n会议纪要：本次会议分析就业现状，部署全员就业推进工作，建立帮扶机制。\n- 就业率情况说明：药学院就业率36.34%，学校平均39%\n- 分析我校往年就业现状及毕业生面临的挑战\n- 慢就业、观望态度，学生就业求职意愿不强烈\n- 专升本人数122人（2025年）\n- 底数不清：求职意愿、区域、意向工作、反馈不清\n- 学生就业定位不清楚——专科生进医院定位问题\n- 就业指导精准度不足，需开展问卷调查\n- 就业信息渠道待拓宽\n- 心理疏导机制不完善\n- 全员参与就业动员，建立“一对多”结对机制和“一生一策”精准帮扶\n- 建立学院帮扶机制、结对帮扶机制、动态跟踪反馈机制"}, {"date": "2026年4月3日", "title": "心理排查工作会议", "attendees": "心理咨询中心李敏主任、学工部部长李小兰、新区辅导员", "location": "7-110", "content": "时间：2026年4月3日\n地点：7-110\n主持人：保泽庆\n参会人员：心理咨询中心李敏主任、学工部部长李小兰、新区辅导员\n会议名称：心理排查工作会议\n\n会议纪要：本次会议汇报学院心理问题学生情况，学习心理识别与谈心谈话技巧。\n- 学院心理问题学生情况汇报\n- 心理云平台、心理日报表使用\n- 谈心谈话技巧培训\n- 学习如何识别心理问题"}, {"date": "2026年4月10日", "title": "征兵入伍工作专题培训", "attendees": "二级学院党总支副书记、全体辅导员", "location": "行政楼413、综合楼411", "content": "时间：2026年4月10日\n地点：行政楼413、综合楼411\n主持人：廖明生\n参会人员：二级学院党总支副书记、全体辅导员\n会议名称：征兵入伍工作专题培训\n\n会议纪要：本次培训详细讲解征兵入伍的全流程、政策要求和注意事项。\n- 孙德满老师征兵工作指导，学习最新指南\n- 网上报名、初检初核、体检政考流程\n- 学校所在地、户籍所在地应征选择：广东→肇庆→端州→肇庆医学院\n- 务必扫码进群：1月初、6月初\n- 新增心理测试（只有一次机会，没有复检机会），若不合格直接淘汰\n- 在校表现评分（指南有模板）\n- 体能测试（新增），加分项目（县级以上获奖，系统自动加分），减分项目（体检有瑕疵，系统自动减分）\n- 大学生（10分），高中毕业生（8分）\n- 粤东、粤西人口大县竞争十分激烈，在校入伍相对机会更大\n- 近视手术8000元补贴\n- 女生：综合分=文化（40%）+思想（30%）+身体（30%），不合格直接淘汰\n- 熟悉三笔帐\n- 在校全程，分阶段推进\n- 体能测试：男1000米，女800米，立定跳远，引体向上"}, {"date": "2026年4月13日", "title": "药学院辅导员工作会议", "attendees": "药学院辅导员（新区校区、鼎湖校区）", "location": "7-109、实验楼2-513", "content": "时间：2026年4月13日\n地点：7-109、实验楼2-513\n主持人：翟英杰、保泽庆书记\n参会人员：药学院辅导员（新区校区、鼎湖校区）\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议强调危机意识和工作纪律，部署心理平台完善、学生管理等工作。\n- 完善心理云平台资料，扎实资料\n- 加强课堂考勤，学生课间去向、晚习情况，迟到早退\n- 学校学生使用无人机情况登记备案\n- 在校学生辅导员本周24小时在岗（学工要求）\n- 8个专任、13个兼职辅导员（教学院）\n- 反思工作，查漏补缺，提高危机意识\n- 加强反诈教育，开展班会性教育、财产教育\n- 注意网络舆情，做好学生引导\n- 有规矩意识、纪律意识，忠诚、干净、担当\n- 周末学生去向管理，做好报备\n- 引导学生多参与学生活动、科研活动\n- 复读、健休学相关工作\n- 24小时7天全程在岗\n- 学费拖欠的，了解情况\n- 未满18周岁学生统计\n- 外出学生需家长知情\n- 走读材料补充、更新，休学材料办理\n- 无课时间把控\n- 周末外出登记表管理\n- 共同处理紧急情况"}, {"date": "2026年4月16日", "title": "党支部党员大会", "attendees": "党支部教师党员", "location": "2-315", "content": "时间：2026年4月16日\n地点：2-315\n主持人：保泽庆、翟英杰\n参会人员：党支部教师党员\n会议名称：党支部党员大会\n\n会议纪要：本次会议开展第一议题学习，强调育人初心。\n- 第一议题：学习习近平总书记重要文章《树立和践行正确政绩观》\n- 坚守育人初心，以生为本、思想引领"}, {"date": "2026年4月21日", "title": "学校领导调研药学院学工工作", "attendees": "新区辅导员、学院领导、学校领导", "location": "7-200", "content": "时间：2026年4月21日\n地点：7-200\n主持人：鄂云容书记\n参会人员：新区辅导员、学院领导、学校领导\n会议名称：学校领导调研药学院学工工作\n\n会议纪要：本次调研会议听取学工工作汇报，就辅导员队伍建设和工作方法提出指导意见。\n- 8名专任、13名兼职辅导员队伍情况\n- 建议兼职辅导员转为班主任，以专职辅导员为主\n- 每半月汇报辅导员日常工作，加强工作联动性\n- 考研专题讲座（周三）、读书节——南方医优秀辅导员讲座、心理讲座、药学院性教育（周四）\n- 工作留痕是需要的，但是不能过度，应注重实效\n- 合理、科学的培训会、案例分享会有利于辅导员提高育人实效\n- 提倡案例式教学，调整师生沟通方式，让情绪、内容入心入脑\n- 提高学生思辨性\n- 突发性学生事件对辅导员工作的启发\n- 开展草坪班会、操场班会\n- 偶发事件应对"}, {"date": "2026年4月21日", "title": "辅导员工作会议（周例会）", "attendees": "药学院全体专兼任辅导员", "location": "2-510", "content": "时间：2026年4月21日\n地点：2-510\n主持人：保泽庆书记\n参会人员：药学院全体专兼任辅导员\n会议名称：辅导员工作会议（周例会）\n\n会议纪要：本次会议部署考研讲座、学生请假制度和就业等工作。\n- 专升本、考研讲座，朋辈力量引领学业规划，提高学生参与度\n- 学生请假制度：跨过周六、周日需计算在内\n- 工作留痕，做好记录\n- 欠费追缴，柔性催促\n- 形成学院案例集\n- 学校正在进行基层副职竞聘\n- 每周辅导员工作汇报（专、兼任辅导员轮流）\n- 就业工作推进"}, {"date": "2026年4月23日", "title": "党支部委员会", "attendees": "保泽庆、翟英杰、周凯燕、彭炜桐", "location": "2-315", "content": "时间：2026年4月23日\n地点：2-315\n主持人：保泽庆\n参会人员：保泽庆、翟英杰、周凯燕、彭炜桐\n会议名称：党支部委员会\n\n会议纪要：本次会议开展第一议题学习，讨论党员发展工作。\n- 第一议题：学习讲话《习近平：推动全民阅读、建设书香社会》\n- 第二议题：讨论确定党员发展对象人选"}, {"date": "2026年4月29日", "title": "药学院辅导员工作例会", "attendees": "药学院辅导员（鼎湖校区、新区校区）", "location": "实验楼2-315", "content": "时间：2026年4月29日\n地点：实验楼2-315\n主持人：保泽庆书记\n参会人员：药学院辅导员（鼎湖校区、新区校区）\n会议名称：药学院辅导员工作例会\n\n会议纪要：本次会议部署心理健康教育主题班会，强调心理干预机制和工作量化。\n- 心理户外特色活动，安排班级活动\n- 学工部最新修订内容，集体修订，形成建议稿\n- 遇到心理问题，请启动干预机制\n- 5月份召开生命教育、感恩教育、性教育主题班会，注重会议活动实效\n- 辅导员工作简报，工作量化，形成工作记录表，整体工作汇报量化\n- 学生去向安全打卡\n- 改善工作：谈话、家校沟通\n- 关键数据归总，24小时开机，应急摄像机制\n- 学生心理健康与生活状况调查问卷\n- 预警库（心理），开展非评判性倾听\n- 心理咨询证相关工作"}, {"date": "2026年4月29日", "title": "药学院辅导员会议", "attendees": "药学院领导、副书记、副主任、辅导员", "location": "2-315", "content": "时间：2026年4月29日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院领导、副书记、副主任、辅导员\n会议名称：药学院辅导员会议\n\n会议纪要：本次会议汇报近期工作，重点强调心理健康工作和心理干预流程。\n- 翟英杰书记作近期工作内容汇报：\n- 心理趣味活动\n- 学校规则规定修订（征集意见）\n- 留校和离校统计：心理问题、身体问题、特殊情况\n- 生命安全班会\n- 各辅导员汇报上周工作情况\n- 陈政老师关于心理学生的录入情况介绍\n- 保书记作总结，提出要求：\n- 心理咨询、心理干预流程\n- 心理判断：情绪波动比较大、有自杀倾向同学，启动心理干预流程"}, {"date": "2026年5月6日", "title": "药学院辅导员工作例会", "attendees": "药学院辅导员（鼎湖校区、新区校区）", "location": "实验楼2-315", "content": "时间：2026年5月6日\n地点：实验楼2-315\n主持人：保泽庆书记、翟英杰副书记\n参会人员：药学院辅导员（鼎湖校区、新区校区）\n会议名称：药学院辅导员工作例会\n\n会议纪要：本次会议强调工作量化汇报，部署返校考勤和困难学生帮扶。\n- 辅导员工作周汇报，量化汇报日常工作（巡课等）\n- 汇总情况需要三线表，言简意赅，汇报控制时间\n- 长假后请假核实，到校、到勤情况\n- 重点关注人群，多开展谈心谈话\n- 引导学生，培养学生思辨能力\n- 利用专业优势，带领团队继续努力，再创佳绩\n- 对待学生工作，用心、用情\n- 经济困难学生可以申请临时困难补助"}, {"date": "2026年5月6日", "title": "药学院辅导员会议", "attendees": "药学院书记、副书记、全体辅导员", "location": "2-315", "content": "时间：2026年5月6日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院书记、副书记、全体辅导员\n会议名称：药学院辅导员会议\n\n会议纪要：本次会议进行工作汇报，强调五一返校数据统计和学生管理。\n- 各兼职辅导员汇报工作内容\n- 程书记工作汇报：\n- 5月1日返校数据统计\n- 实习学生档案、综测、成绩、心理有问题等问题\n- 宿舍矛盾\n- 保书记作总结：\n- 心理工作\n- 安全工作\n- 严格请假流程"}, {"date": "2026年5月13日", "title": "药学院辅导员例会", "attendees": "药学院全体辅导员、学院正副书记", "location": "实验楼2-315", "content": "时间：2026年5月13日\n地点：实验楼2-315\n主持人：保泽庆书记\n参会人员：药学院全体辅导员、学院正副书记\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议强调工作量化和脱稿汇报，重点部署就业、性教育和实习前准备工作。\n- 量化工作，列表指出具体进度、做法\n- 建议汇报脱稿\n- 就业率工作，学校排名第3，全日制专科就业率偏低\n- 每日工作台帐\n- 就业工作交流，就业是重中之重\n- 心理问题处置\n- 性教育（实习前）\n- 宿舍矛盾处置\n- 请假时间、时长管理\n- 心理电影：《青春变形记》\n- 上班严格纪律\n- 团队精神\n- 实习前，班级学生情绪、就业实操指导"}, {"date": "2026年5月13日", "title": "2026-2027年教学、实习工作专题会议", "attendees": "二级学院正副书记、院长、辅导员", "location": "行政楼411", "content": "时间：2026年5月13日\n地点：行政楼411\n主持人：廖生洁、邓建全、李智锋\n参会人员：二级学院正副书记、院长、辅导员\n会议名称：2026-2027年教学、实习工作专题会议\n\n会议纪要：本次会议部署实习费用和招生计划相关工作。\n- 实习费一院一策，超出学校支付费用，由学生补齐\n- 住宿费直接由学生交给实习单位\n- 5月26日下班前以学院交齐\n- 黑色字体，不分男女\n- 整体没有住宿，全员没有或某个支出没有\n- 备注是补交费用，住宿费有参考（以月为单位）\n- 推荐组长\n- 认真对待，事前工作纪律\n- 2026年招生计划：6000人，2600人本科，934人高职，2326人专科，140人专升本"}, {"date": "2026年5月19日", "title": "药学院辅导员工作会议", "attendees": "药学院书记副书记、全体辅导员", "location": "2-315", "content": "时间：2026年5月19日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院书记副书记、全体辅导员\n会议名称：药学院辅导员工作会议\n\n会议纪要：本次会议进行工作汇报，领导提出工作意见，强调请假和实习保险。\n- 各位兼职、辅导员汇报工作\n- 李俊涛书记提出工作意见\n- 保书记提出工作意见：\n- 辅导员请假管理\n- 学生请假审批\n- 实习保险"}, {"date": "2026年5月19日", "title": "辅导员工作会议", "attendees": "辅导员", "location": "2-315", "content": "时间：2026年5月19日\n地点：2-315\n主持人：贾保泽庆\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议进行工作汇报，领导讲话，强调请假流程和实习保险。\n- 汇报工作\n- 李俊涛书记讲话\n- 请假流程\n- 实习保险"}, {"date": "2026年5月20日", "title": "辅导员工作会议", "attendees": "药学院副书记、全体专职辅导员", "location": "7-200", "content": "时间：2026年5月20日\n地点：7-200\n主持人：李俊涛\n参会人员：药学院副书记、全体专职辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议强调纪律、党建和宿舍矛盾排查。\n- 纪律：考勤工作，按部就班，如实报备\n- 党建：三会一课\n- 心腹问题：宿舍矛盾，以表格形式汇总到班级，排查风险点"}, {"date": "2026年5月26日", "title": "药学院辅导员例会", "attendees": "药学院书记、副书记、全体辅导员", "location": "2-315", "content": "时间：2026年5月26日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院书记、副书记、全体辅导员\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议进行工作汇报，强调外出报备和多项重点工作推进。\n- 专职辅导员汇报11-12周工作内容重点，主要事件分类，工作内容具体描述\n- 外出学习、请假要跟领导报备：书记与副书记都要汇报\n- 李和征工作：①未交学费 ②两页官网 ③就业推进会\n- 翟书记工作：①实习点安排工作 ②档案整理 ③谈心谈话\n- 重点工作：就业、参军、党建、心理问题"}, {"date": "2026年5月26日", "title": "辅导员工作会议", "attendees": "辅导员", "location": "2-315", "content": "时间：2026年5月26日\n地点：2-315\n主持人：保泽庆\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议强调工作汇报规范和学生管理多项重点工作。\n- 辅导员工作汇报（时间、次数标红、简洁、不要忘记PPT），展开一点点\n- 学生住院、紧急发病告知副书记\n- 定位打卡（学生去向），家校沟通、谈心谈话记录、班干部会议、宿舍长会议、违纪学生管理\n- 外出报备申请表，外出需和副书记、书记汇报\n- 党建工作网站更新，6月党日活动\n- 交流谈心谈话（一轮、全班）：实习、就业、人际、学业压力、生活问题\n- 困难生就业\n- 考试月、考风考纪班会\n- 就业、征兵、心理问题、党建工作\n- 日常管理由副书记负责\n- 风险点详细排查\n- 就业帮扶汇报学生情况（未就业、目前情况）"}, {"date": "2026年6月2日", "title": "药学院辅导员例会", "attendees": "全体药学院学工队伍", "location": "2-315", "content": "时间：2026年6月2日\n地点：2-315\n主持人：保泽庆、李俊涛\n参会人员：全体药学院学工队伍\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议部署日常管理、就业、党建和实习前教育等多项工作。\n- 学生日常管理工作，辅导员周汇报\n- 临时困难补助申请\n- 上课抬头率提升\n- 多听课、多巡课\n- 校园政治安全周（6月1日-6月7日）\n- 就业率重中之重，高质量就业\n- 省社科联申报\n- 亲子党建活动\n- 实习前教育\n- 档案整理"}, {"date": "2026年6月2日", "title": "辅导员工作会议", "attendees": "辅导员", "location": "2-315", "content": "时间：2026年6月2日\n地点：2-315\n主持人：李俊涛\n参会人员：辅导员\n会议名称：辅导员工作会议\n\n会议纪要：本次会议部署毕业生工作、政治安全和安全管理。\n- 辅导员工作汇报\n- 毕业生档案填报\n- 校园政治安全工作会议，关注网络舆情\n- 应征入伍工作（毕业班）\n- 加强安全管理、排查\n- 大功率电器排查，较差宿舍整改\n- 19周、党建活动，401人\n- 实习生的思想动态"}, {"date": "2026年6月2日", "title": "药学院辅导员例会", "attendees": "药学院全体辅导员、书记、副书记", "location": "2-315", "content": "时间：2026年6月2日\n地点：2-315\n主持人：保泽庆\n参会人员：药学院全体辅导员、书记、副书记\n会议名称：药学院辅导员例会\n\n会议纪要：本次会议进行工作汇报，部署毕业生、征兵、安全等工作。\n- 兼职辅导员汇报工作情况\n- 李书记安排相关毕业生、应征入伍、学生安全问题\n- 翟书记通报相关事项：①大功率电器 ②卫生较差宿舍\n- 修书记做工作总结"}];
 
 function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toast._timeout);
-  toast._timeout = setTimeout(() => toast.classList.remove('show'), 1800);
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(function(){ t.classList.remove('show'); }, 1800);
 }
 
-function exportPDF() {
-  showToast('正在准备导出 PDF…');
-  setTimeout(() => window.print(), 300);
-}
-
-renderMeetings();
+// Copy button handlers
+var btns = document.querySelectorAll('.btn-copy');
+btns.forEach(function(btn, idx) {
+  btn.addEventListener('click', function() {
+    var m = meetingData[idx];
+    var text = '【' + m.date + '】' + m.title + '\n地点：' + m.location + '\n参会人员：' + m.attendees + '\n\n' + m.content;
+    var self = this;
+    navigator.clipboard.writeText(text).then(function() {
+      self.classList.add('copied');
+      self.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 已复制';
+      showToast('会议内容已复制到剪贴板');
+      setTimeout(function() {
+        self.classList.remove('copied');
+        self.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> 一键复制';
+      }, 1800);
+    }).catch(function() {
+      showToast('复制失败，请重试');
+    });
+  });
+});
 </script>
 </body>
 </html>
